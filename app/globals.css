@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 25% 94%; /* #F5F5EB */
+    --foreground: 60 14% 7%;  /* #14140F */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0f0f11;
+    background-image: 
+      radial-gradient(ellipse at top left, rgba(40, 40, 45, 1) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(50, 50, 55, 1) 0%, transparent 60%),
+      radial-gradient(circle at center, rgba(20, 20, 24, 1) 0%, transparent 100%);
+    background-attachment: fixed;
+    color: #F5F5EB;
+    @apply antialiased selection:bg-brand-perk selection:text-brand;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Perk.com style solid panel */
+.solid-panel {
+  @apply bg-white rounded-[2rem] border border-[#14140F]/10 shadow-clean;
+}
