@@ -2,19 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import HostProblemsBackground from "./HostProblemsBackground";
 
 export default function ValueComparison() {
   return (
     <section className="py-24 relative transparent overflow-hidden">
       {/* Background accents just for this section to pop more */}
       <div className="absolute inset-0 z-0 bg-[#E8E8DE]" />
+      <HostProblemsBackground />
       
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">
-            Stop stressing. <span className="text-brand-perk bg-white/10 px-3 rounded-lg py-1 border border-white/10">Start celebrating.</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-[#14140F]">
+            Stop stressing. <span className="text-brand-perk bg-[#14140F] px-4 rounded-xl py-2 inline-block mt-2 shadow-[0_0_20px_rgba(20,20,15,0.2)]">Start celebrating.</span>
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-xl text-[#14140F]/70 font-medium">
             Hosting shouldn't feel like a chore. Here is the difference we make.
           </p>
         </div>
@@ -26,13 +28,13 @@ export default function ValueComparison() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="solid-panel p-8 md:p-12 md:pr-16 relative z-10 md:rounded-r-none border-r-0"
+            className="solid-panel p-8 md:p-12 md:pr-16 relative z-10 md:rounded-r-none border-r-0 border-[#14140F]/10 shadow-lg"
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
                 <span className="text-gray-500 font-bold">DIY</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-400">Regular Hosting</h3>
+              <h3 className="text-2xl font-bold text-gray-700">Regular Hosting</h3>
             </div>
 
             <ul className="space-y-6">
@@ -46,7 +48,7 @@ export default function ValueComparison() {
                   <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
                     <X className="w-4 h-4 text-red-500" />
                   </div>
-                  <span className="text-gray-500 font-medium">{item}</span>
+                  <span className="text-gray-600 font-medium">{item}</span>
                 </li>
               ))}
             </ul>
@@ -57,18 +59,18 @@ export default function ValueComparison() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="solid-panel bg-brand rounded-[2.5rem] p-8 md:p-12 shadow-clean-xl border-2 border-brand-perk relative z-20 md:scale-110 origin-left"
+            className="bg-[#14140F] rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-brand-perk/30 relative z-20 md:scale-110 origin-left"
           >
             {/* Absolute badge */}
-            <div className="absolute -top-4 right-8 bg-brand-perk text-brand font-bold px-4 py-1.5 rounded-full text-sm shadow-clean transform rotate-3">
+            <div className="absolute -top-4 right-8 bg-brand-perk text-[#14140F] font-black px-5 py-2 rounded-full text-sm shadow-[0_10px_20px_rgba(190,255,80,0.3)] transform rotate-3">
               The Smart Way
             </div>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-brand-perk flex items-center justify-center">
-                <span className="text-brand font-bold text-xl">V</span>
+              <div className="w-12 h-12 rounded-full bg-brand-perk flex items-center justify-center shadow-lg">
+                <span className="text-[#14140F] font-black text-xl">V</span>
               </div>
-              <h3 className="text-3xl font-bold text-white">The Vibe House</h3>
+              <h3 className="text-3xl font-bold text-white tracking-tight">The Vibe House</h3>
             </div>
 
             <ul className="space-y-6">
@@ -79,10 +81,10 @@ export default function ValueComparison() {
                 "You wake up to a spotless house."
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-perk flex items-center justify-center shrink-0 mt-1">
-                    <Check className="w-4 h-4 text-brand" />
+                  <div className="w-7 h-7 rounded-full bg-brand-perk/20 border border-brand-perk/50 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_10px_rgba(190,255,80,0.2)]">
+                    <Check className="w-4 h-4 text-brand-perk" />
                   </div>
-                  <span className="text-white font-medium text-lg">{item}</span>
+                  <span className="text-white/90 font-medium text-lg leading-snug">{item}</span>
                 </li>
               ))}
             </ul>

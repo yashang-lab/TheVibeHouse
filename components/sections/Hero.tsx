@@ -80,18 +80,18 @@ export default function Hero() {
         <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
           {[
             // Left Side
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hamburger/3D/hamburger_3d.png", x: -550, y: -150, delay: 0.5, rotate: -15, scale: 1.2, size: 160 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clinking%20glasses/3D/clinking_glasses_3d.png", x: -650, y: 100, delay: 0.7, rotate: -5, scale: 1.2, size: 150 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Party%20popper/3D/party_popper_3d.png", x: -450, y: 280, delay: 0.65, rotate: -20, scale: 1.2, size: 160 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/French%20fries/3D/french_fries_3d.png", x: -850, y: -40, delay: 0.8, rotate: -10, scale: 1.1, size: 140 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Doughnut/3D/doughnut_3d.png", x: -800, y: 220, delay: 0.85, rotate: 15, scale: 1.3, size: 150 },
+            { src: "/3d-elements/hamburger_3d.png", x: -550, y: -150, delay: 0.5, rotate: -15, scale: 1.2, size: 160 },
+            { src: "/3d-elements/clinking_glasses_3d.png", x: -650, y: 100, delay: 0.7, rotate: -5, scale: 1.2, size: 150 },
+            { src: "/3d-elements/party_popper_3d.png", x: -450, y: 280, delay: 0.65, rotate: -20, scale: 1.2, size: 160 },
+            { src: "/3d-elements/french_fries_3d.png", x: -850, y: -40, delay: 0.8, rotate: -10, scale: 1.1, size: 140 },
+            { src: "/3d-elements/doughnut_3d.png", x: -800, y: 220, delay: 0.85, rotate: 15, scale: 1.3, size: 150 },
             
             // Right Side
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Birthday%20cake/3D/birthday_cake_3d.png", x: 550, y: -140, delay: 0.6, rotate: 10, scale: 1.3, size: 180 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Balloon/3D/balloon_3d.png", x: 650, y: 80, delay: 0.55, rotate: 15, scale: 1.3, size: 170 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Pizza/3D/pizza_3d.png", x: 500, y: 280, delay: 0.75, rotate: 25, scale: 1.3, size: 160 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Confetti%20ball/3D/confetti_ball_3d.png", x: 850, y: -60, delay: 0.9, rotate: -10, scale: 1.4, size: 150 },
-            { src: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hot%20dog/3D/hot_dog_3d.png", x: 800, y: 200, delay: 0.95, rotate: -15, scale: 1.2, size: 160 },
+            { src: "/3d-elements/birthday_cake_3d.png", x: 550, y: -140, delay: 0.6, rotate: 10, scale: 1.3, size: 180 },
+            { src: "/3d-elements/balloon_3d.png", x: 650, y: 80, delay: 0.55, rotate: 15, scale: 1.3, size: 170 },
+            { src: "/3d-elements/pizza_3d.png", x: 500, y: 280, delay: 0.75, rotate: 25, scale: 1.3, size: 160 },
+            { src: "/3d-elements/confetti_ball_3d.png", x: 850, y: -60, delay: 0.9, rotate: -10, scale: 1.4, size: 150 },
+            { src: "/3d-elements/hot_dog_3d.png", x: 800, y: 200, delay: 0.95, rotate: -15, scale: 1.2, size: 160 },
           ].map((item, i) => (
             <motion.div
               key={i}
