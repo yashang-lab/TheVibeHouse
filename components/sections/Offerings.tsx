@@ -94,8 +94,8 @@ export default function Offerings() {
           {/* Left Column: Vibe Box Reel */}
           <div className="flex flex-col gap-4">
             <div className="min-h-[90px] flex flex-col justify-end mb-2">
-              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight uppercase">
-                THE VIBE BOX
+              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
+                The Vibe Box
               </h2>
               <div className="mt-2">
                 <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
