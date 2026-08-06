@@ -1,33 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
-const ReelCard = ({ 
-  src, 
-  badge, 
-  title, 
-  delay = 0 
-}: { 
-  src: string; 
-  badge: string; 
-  title: string; 
-  delay?: number 
-}) => {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+interface ReelCardProps {
+  id: string;
+  src: string;
+  activeUnmutedId: string | null;
+  onToggleAudio: (id: string) => void;
+  delay?: number;
+}
 
-  const toggleMute = () => {
+const ReelCard = ({ 
+  id,
+  src, 
+  activeUnmutedId,
+  onToggleAudio,
+  delay = 0 
+}: ReelCardProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isMuted = activeUnmutedId !== id;
+
+  useEffect(() => {
     if (videoRef.current) {
-      const nextMuted = !videoRef.current.muted;
-      videoRef.current.muted = nextMuted;
-      setIsMuted(nextMuted);
-      if (!nextMuted) {
+      videoRef.current.muted = isMuted;
+      if (!isMuted) {
         videoRef.current.play().catch(() => {});
       }
     }
-  };
+  }, [isMuted]);
 
   return (
     <motion.div
@@ -48,13 +50,13 @@ const ReelCard = ({
         <source src={src} type="video/mp4" />
       </video>
 
-      {/* Ambient Gradients for Title Readability */}
+      {/* Ambient Gradients for Contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 pointer-events-none" />
 
       {/* Volume Enabler Button in Bottom Right Corner */}
       <div className="absolute bottom-8 right-6 z-20">
         <button
-          onClick={toggleMute}
+          onClick={() => onToggleAudio(id)}
           className="w-12 h-12 rounded-full bg-black/60 border border-white/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-perk hover:text-[#14140F] hover:border-brand-perk transition-all shadow-xl active:scale-95 shrink-0"
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
           title={isMuted ? "Enable Audio" : "Mute Audio"}
@@ -71,6 +73,12 @@ const ReelCard = ({
 };
 
 export default function Offerings() {
+  const [activeUnmutedId, setActiveUnmutedId] = useState<string | null>(null);
+
+  const handleToggleAudio = (id: string) => {
+    setActiveUnmutedId((prevId) => (prevId === id ? null : id));
+  };
+
   return (
     <section id="services" className="pt-12 pb-24 relative transparent overflow-hidden">
       
@@ -93,9 +101,10 @@ export default function Offerings() {
             </div>
 
             <ReelCard 
+              id="vibe-reel"
               src="/vibe-reel.mp4" 
-              badge="Party Highlights" 
-              title="The Vibe Reel" 
+              activeUnmutedId={activeUnmutedId}
+              onToggleAudio={handleToggleAudio}
               delay={0} 
             />
           </div>
@@ -114,9 +123,10 @@ export default function Offerings() {
             </div>
 
             <ReelCard 
+              id="ramya-review"
               src="/Testimonial - Ramya.mp4" 
-              badge="Customer Story" 
-              title="Ramya's Review" 
+              activeUnmutedId={activeUnmutedId}
+              onToggleAudio={handleToggleAudio}
               delay={0.15} 
             />
           </div>
