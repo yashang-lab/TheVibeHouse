@@ -171,7 +171,7 @@ export default function Packages() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+        <div className="mb-16">
           <div className="max-w-3xl">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">
               Transparent <span className="text-[#14140F] bg-brand-perk px-4 rounded-xl py-1 inline-block">Pricing</span>
@@ -180,9 +180,6 @@ export default function Packages() {
               3 tiers designed for every vibe & budget. Zero hidden fees.
             </p>
           </div>
-          <Button variant="outline" className="hidden md:inline-flex text-white border-white/20 hover:bg-white/10 font-bold">
-            View All Details
-          </Button>
         </div>
 
         {/* 3 Tier Cards Grid */}
