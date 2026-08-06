@@ -91,7 +91,7 @@ export default function AppPromo() {
             className="relative flex flex-col justify-center items-center lg:items-end perspective-[2000px] h-full min-h-[650px] lg:min-h-[720px]"
           >
             <motion.div 
-              className="relative w-[340px] sm:w-[380px] h-[660px] sm:h-[710px] shrink-0 rounded-[3.5rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.6)] border border-white/20 bg-[#16161a]"
+              className="relative w-[320px] sm:w-[360px] h-[650px] sm:h-[700px] shrink-0 rounded-[3.2rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.7)] border border-white/20 bg-transparent flex items-center justify-center"
               style={{ 
                 rotateY: scrollRotateY, 
                 rotateX: scrollRotateX, 
@@ -101,13 +101,11 @@ export default function AppPromo() {
                 transformStyle: 'preserve-3d' 
               }}
             >
-              {/* Spline Interactive 3D Model Iframe with zoomed framing */}
+              {/* Spline Interactive 3D Model Iframe zoomed to crop out grey card */}
               <iframe 
                 src="https://my.spline.design/iphone14procopy-lRbkLYUvuebuY9iDjhN7OU9Q/" 
                 frameBorder="0" 
-                width="100%" 
-                height="100%" 
-                className="w-full h-full border-0 pointer-events-auto scale-110"
+                className="w-[180%] h-[180%] shrink-0 border-0 pointer-events-auto scale-[1.75] origin-center -translate-x-[1%] -translate-y-[2%]"
                 title="3D iPhone Mockup"
               />
             </motion.div>
