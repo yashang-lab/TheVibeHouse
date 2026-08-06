@@ -4,14 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Button from "../Button";
 
-const occasions = [
-  { id: "house", label: "House Parties 🎉" },
-  { id: "birthday", label: "Birthdays 🎂" },
-  { id: "corporate", label: "Corporate Events 💼" },
-];
-
 export default function Hero() {
-  const [activeOccasion, setActiveOccasion] = useState("house");
 
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
@@ -58,25 +51,21 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Occasion Chip Selector */}
+          {/* Occasion Tags (Flat, Non-clickable) */}
           <div className="mb-12">
             <p className="text-sm md:text-base font-bold text-white/80 mb-4 tracking-wide uppercase">
               India&apos;s Leading End-to-End solution for:
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              {occasions.map((occ) => (
-                <button
-                  key={occ.id}
-                  onClick={() => setActiveOccasion(occ.id)}
-                  className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 border backdrop-blur-md ${
-                    activeOccasion === occ.id
-                      ? "bg-white text-[#14140F] border-white shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-105"
-                      : "bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  {occ.label}
-                </button>
-              ))}
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
+                House Parties 🎉
+              </span>
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
+                Birthdays 🎂
+              </span>
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
+                Corporate Events 💼
+              </span>
               <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/70 bg-white/5 border border-white/10 backdrop-blur-md">
                 and more... ✨
               </span>
