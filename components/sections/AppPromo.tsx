@@ -2,22 +2,13 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Download } from "lucide-react";
-import { useRef } from "react";
-import dynamic from "next/dynamic";
-
-// Dynamically import Spline component with SSR disabled for WebGL
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex flex-col items-center justify-center text-white/60 gap-3">
-      <div className="w-8 h-8 border-2 border-brand-perk border-t-transparent rounded-full animate-spin" />
-      <span className="text-xs font-semibold">Loading 3D iPhone...</span>
-    </div>
-  )
-});
+import { useRef, useEffect, useState } from "react";
+import { Application } from "@splinetool/runtime";
 
 export default function AppPromo() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Scroll linked motion
   const { scrollYProgress } = useScroll({
@@ -30,6 +21,45 @@ export default function AppPromo() {
   const scrollScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const scrollY = useTransform(scrollYProgress, [0, 1], [120, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      const app = new Application(canvasRef.current);
+      app
+        .load("https://prod.spline.design/lRbkLYUvuebuY9iDjhN7OU9Q/scene.splinecode")
+        .then(() => {
+          setIsLoading(false);
+          // Hide any 2D grey card background rectangle object inside Spline scene
+          try {
+            const objects = app.getObjects ? app.getObjects() : [];
+            objects.forEach((obj: any) => {
+              if (obj && obj.name) {
+                const name = obj.name.toLowerCase();
+                if (
+                  name.includes("rectangle") || 
+                  name.includes("bg") || 
+                  name.includes("background") || 
+                  name.includes("card") ||
+                  name.includes("plane")
+                ) {
+                  obj.visible = false;
+                }
+              }
+            });
+          } catch (e) {
+            console.log("Spline scene objects loaded", e);
+          }
+        })
+        .catch((err) => {
+          console.error("Spline load error:", err);
+          setIsLoading(false);
+        });
+
+      return () => {
+        app.dispose();
+      };
+    }
+  }, []);
 
   return (
     <section id="app" className="py-24 bg-brand relative overflow-hidden">
@@ -93,7 +123,7 @@ export default function AppPromo() {
             </div>
           </motion.div>
 
-          {/* Right Visual (Official Spline 3D iPhone Scene) */}
+          {/* Right Visual (Official Spline 3D iPhone Canvas) */}
           <div 
             ref={containerRef} 
             className="relative flex flex-col justify-center items-center lg:items-end perspective-[2000px] h-full min-h-[650px] lg:min-h-[750px]"
@@ -109,38 +139,24 @@ export default function AppPromo() {
                 transformStyle: 'preserve-3d' 
               }}
             >
-              {/* Spline 3D Interactive Model */}
-              <Spline 
-                scene="https://prod.spline.design/lRbkLYUvuebuY9iDjhN7OU9Q/scene.splinecode" 
-                className="w-full h-full"
-                onLoad={(splineApp) => {
-                  try {
-                    // Hide any 2D grey card or background plane object in the Spline scene hierarchy
-                    const objects = splineApp.getObjects ? splineApp.getObjects() : [];
-                    objects.forEach((obj: any) => {
-                      if (obj && obj.name) {
-                        const name = obj.name.toLowerCase();
-                        if (
-                          name.includes('rectangle') || 
-                          name.includes('bg') || 
-                          name.includes('background') || 
-                          name.includes('card') ||
-                          name.includes('plane')
-                        ) {
-                          obj.visible = false;
-                        }
-                      }
-                    });
-                  } catch (e) {
-                    console.log('Spline scene loaded:', e);
-                  }
-                }}
+              {/* Loading Indicator */}
+              {isLoading && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white/70 gap-3 z-20">
+                  <div className="w-8 h-8 border-2 border-brand-perk border-t-transparent rounded-full animate-spin" />
+                  <span className="text-xs font-semibold">Loading 3D iPhone...</span>
+                </div>
+              )}
+
+              {/* Native WebGL Canvas for Spline 3D Scene */}
+              <canvas 
+                ref={canvasRef} 
+                className="w-full h-full block touch-none cursor-grab active:cursor-grabbing outline-none"
               />
             </motion.div>
             
             {/* Interactive Drag Helper Badge */}
             <div className="mt-4 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-xs backdrop-blur-md flex items-center gap-2 shadow-xl">
-              <span>🖱️ Hover & drag mouse to rotate 3D iPhone scene</span>
+              <span>🖱️ Drag mouse to spin 3D iPhone 360°</span>
             </div>
 
             {/* Decorative background glow behind phone */}
