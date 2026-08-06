@@ -115,8 +115,8 @@ export default function Offerings() {
           {/* Right Column: Customer Story / Ramya's Review Reel */}
           <div className="flex flex-col gap-4">
             <div className="min-h-[90px] flex flex-col justify-end mb-2">
-              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
-                See what our customers say
+              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight uppercase">
+                SEE WHAT OUR CUSTOMERS SAY
               </h2>
               <div className="mt-2">
                 <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
