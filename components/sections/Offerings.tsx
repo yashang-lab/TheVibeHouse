@@ -1,8 +1,13 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Utensils, Cake, Camera, CheckCircle2, ChevronDown } from "lucide-react";
+import { Utensils, Cake, Camera, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+
+const videos = [
+  { id: "vibe", title: "The Vibe Reel", badge: "Party Highlights", src: "/vibe-reel.mp4" },
+  { id: "ramya", title: "Ramya's Review", badge: "Customer Story", src: "/Testimonial - Ramya.mp4" },
+];
 
 const CategoryAccordion = ({ 
   icon: Icon, 
@@ -66,6 +71,8 @@ const CategoryAccordion = ({
 };
 
 export default function Offerings() {
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+
   return (
     <section id="services" className="pt-12 pb-24 relative transparent overflow-hidden">
       
@@ -83,24 +90,68 @@ export default function Offerings() {
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           
-          {/* Left Side: Video Reel with Sleek UI Mask */}
-          <div className="w-full lg:w-5/12 sticky top-32 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl relative h-[60vh] lg:h-[75vh]">
+          {/* Left Side: Interactive Dual Video Reel Player */}
+          <div className="w-full lg:w-5/12 sticky top-32 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl relative h-[60vh] lg:h-[75vh] bg-black">
             <video 
+              key={videos[activeVideoIndex].src}
               autoPlay 
               loop 
               muted 
               playsInline 
               className="absolute top-0 left-0 w-full h-full object-cover"
             >
-              <source src="/vibe-reel.mp4" type="video/mp4" />
+              <source src={videos[activeVideoIndex].src} type="video/mp4" />
             </video>
             
-            {/* Fixed Gradients - Avoid middle line artifact */}
-            <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent pointer-events-none" />
+            {/* Ambient Overlay Gradients */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80 pointer-events-none" />
             
-            {/* Bottom corner heavy blur to obscure watermark smoothly without harsh lines */}
-            <div className="absolute -bottom-16 -right-16 w-[350px] h-[350px] bg-[#111111] blur-[60px] pointer-events-none rounded-full" />
+            {/* Top Bar Video Selector Buttons */}
+            <div className="absolute top-4 inset-x-4 z-20 flex gap-2 justify-center">
+              {videos.map((vid, idx) => (
+                <button
+                  key={vid.id}
+                  onClick={() => setActiveVideoIndex(idx)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all backdrop-blur-md border ${
+                    activeVideoIndex === idx
+                      ? "bg-white text-black border-white shadow-lg scale-105"
+                      : "bg-black/40 text-white/80 border-white/20 hover:bg-black/60"
+                  }`}
+                >
+                  {vid.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Bottom Controls & Info */}
+            <div className="absolute bottom-6 inset-x-6 z-20 flex justify-between items-end">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-brand-perk text-[#14140F] mb-2 inline-block shadow-md">
+                  {videos[activeVideoIndex].badge}
+                </span>
+                <h3 className="text-xl font-bold text-white tracking-tight drop-shadow-md">
+                  {videos[activeVideoIndex].title}
+                </h3>
+              </div>
+
+              {/* Prev / Next controls */}
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => setActiveVideoIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1))}
+                  className="w-10 h-10 rounded-full bg-black/40 border border-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all shadow-lg"
+                  aria-label="Previous Video"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button 
+                  onClick={() => setActiveVideoIndex((prev) => (prev === videos.length - 1 ? 0 : prev + 1))}
+                  className="w-10 h-10 rounded-full bg-black/40 border border-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all shadow-lg"
+                  aria-label="Next Video"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Right Side: Main Category Accordions */}
