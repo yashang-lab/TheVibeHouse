@@ -17,8 +17,25 @@ export default function Hero() {
           transition={{ delay: 0.1 }}
           className="max-w-4xl mx-auto mb-12 relative z-20"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white font-bold text-sm mb-6 uppercase tracking-widest border border-white/10 shadow-sm backdrop-blur-sm">
-            Stop Stressing. Start Celebrating.
+          {/* Top Section: India's Leading End-To-End Solution */}
+          <div className="mb-10">
+            <p className="text-base md:text-xl font-black text-white/90 mb-5 tracking-widest uppercase">
+              <span className="text-3xl md:text-5xl font-black text-brand-perk tracking-wider inline-block mr-1.5 drop-shadow-[0_0_20px_rgba(190,255,80,0.4)]">INDIA&apos;S</span> LEADING END-TO-END SOLUTION FOR:
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+                House Parties 🎉
+              </span>
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+                Birthdays 🎂
+              </span>
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+                Corporate Events 💼
+              </span>
+              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/70 bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
+                and more... ✨
+              </span>
+            </div>
           </div>
           
           {/* New Promoted H1 */}
@@ -33,7 +50,7 @@ export default function Hero() {
           </p>
           
           {/* CTAs Rebalanced */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             {/* Primary CTA */}
             <Button size="lg" className="w-full sm:w-auto font-bold px-10 bg-brand-perk text-[#14140F] hover:bg-[#a6e546] border-none shadow-[0_0_30px_rgba(190,255,80,0.3)]">
               Book an Event
@@ -51,24 +68,10 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Occasion Tags (Flat, Non-clickable) */}
+          {/* Swapped Stop Stressing Pill Badge */}
           <div className="mb-12">
-            <p className="text-sm md:text-base font-bold text-white/80 mb-4 tracking-wide uppercase">
-              India&apos;s Leading End-to-End solution for:
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
-                House Parties 🎉
-              </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
-                Birthdays 🎂
-              </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md">
-                Corporate Events 💼
-              </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/70 bg-white/5 border border-white/10 backdrop-blur-md">
-                and more... ✨
-              </span>
+            <div className="inline-block px-6 py-2 rounded-full bg-white/10 text-white font-bold text-xs md:text-sm uppercase tracking-widest border border-white/15 shadow-sm backdrop-blur-sm">
+              Stop Stressing. Start Celebrating.
             </div>
           </div>
 
