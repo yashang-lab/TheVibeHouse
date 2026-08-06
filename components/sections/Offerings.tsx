@@ -51,13 +51,6 @@ const ReelCard = ({
       {/* Ambient Gradients for Title Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 pointer-events-none" />
 
-      {/* Top Badge */}
-      <div className="absolute top-6 left-6 z-20">
-        <span className="text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full bg-brand-perk text-[#14140F] shadow-lg">
-          {badge}
-        </span>
-      </div>
-
       {/* Bottom Title & Volume Enabler Button */}
       <div className="absolute bottom-8 left-6 right-6 z-20 flex justify-between items-end gap-4">
         <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-lg leading-tight">
