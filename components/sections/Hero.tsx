@@ -76,10 +76,20 @@ export default function Hero() {
           </div>
 
           {/* Credibility Strip */}
-          <div className="pt-8 border-t border-white/10 max-w-lg mx-auto">
-            <p className="text-sm md:text-base font-semibold text-white/60 tracking-wide uppercase">
-              Trusted for <span className="text-white">500+ events</span> across homes & offices
-            </p>
+          <div className="pt-8 border-t border-white/10 max-w-2xl mx-auto flex items-center justify-center">
+            <div className="flex items-center gap-4 sm:gap-6 bg-black/40 backdrop-blur-md px-6 sm:px-8 py-3.5 sm:py-4 rounded-3xl border border-white/15 shadow-2xl hover:border-brand-perk/40 transition-colors">
+              <span className="text-4xl sm:text-6xl font-black text-brand-perk tracking-tight drop-shadow-[0_0_25px_rgba(190,255,80,0.5)] leading-none">
+                500+
+              </span>
+              <div className="text-left">
+                <div className="text-sm sm:text-lg font-black text-white uppercase tracking-wider leading-tight">
+                  Successful Events
+                </div>
+                <div className="text-xs sm:text-sm text-white/70 font-semibold tracking-wide mt-0.5">
+                  Trusted across Homes & Offices
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
