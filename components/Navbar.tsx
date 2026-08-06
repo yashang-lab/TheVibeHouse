@@ -29,19 +29,19 @@ export default function Navbar() {
       >
         <header
           className={`transition-all duration-300 ${
-            isScrolled ? "bg-[#1A1A1A] rounded-full m-4 px-2 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10" : "bg-transparent py-6 border border-transparent m-0"
+            isScrolled ? "bg-[#1A1A1A]/95 backdrop-blur-md rounded-full m-3 max-w-6xl mx-auto px-2 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10" : "bg-transparent py-3 border border-transparent m-0"
           }`}
         >
         <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform">
-            <div className="h-20 w-20 md:h-24 md:w-24 shrink-0 rounded-full overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.1)] border-2 border-white/10 flex items-center justify-center bg-white">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+            <div className="h-10 w-10 md:h-12 md:w-12 shrink-0 rounded-full overflow-hidden shadow-[0_0_10px_rgba(255,255,255,0.1)] border border-white/20 flex items-center justify-center bg-white">
               <img 
                 src="/logo-light-mode.png" 
                 alt="The Vibe House Logo" 
                 className="w-[120%] h-[120%] object-cover"
               />
             </div>
-            <span className="hidden sm:block font-black text-white text-xl md:text-2xl tracking-tight">
+            <span className="hidden sm:block font-black text-white text-base md:text-lg tracking-tight">
               THE VIBE HOUSE
             </span>
           </Link>
