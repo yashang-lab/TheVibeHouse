@@ -27,7 +27,7 @@ const comparisonData = [
   {
     feature: "Pricing Transparency",
     diy: "Hidden service charges, surge pricing, extra fees",
-    vibe: "Clear, transparent 3-tier packages with zero hidden costs"
+    vibe: "Clear, transparent pricing, with no hidden fees"
   }
 ];
 
