@@ -51,13 +51,8 @@ const ReelCard = ({
       {/* Ambient Gradients for Title Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 pointer-events-none" />
 
-      {/* Bottom Title & Volume Enabler Button */}
-      <div className="absolute bottom-8 left-6 right-6 z-20 flex justify-between items-end gap-4">
-        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-lg leading-tight">
-          {title}
-        </h3>
-
-        {/* Volume Enabler Button in Bottom Right Corner */}
+      {/* Volume Enabler Button in Bottom Right Corner */}
+      <div className="absolute bottom-8 right-6 z-20">
         <button
           onClick={toggleMute}
           className="w-12 h-12 rounded-full bg-black/60 border border-white/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-perk hover:text-[#14140F] hover:border-brand-perk transition-all shadow-xl active:scale-95 shrink-0"
