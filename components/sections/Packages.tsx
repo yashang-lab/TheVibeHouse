@@ -285,21 +285,21 @@ export default function Packages() {
             💡 Why Our Packages Work
           </h4>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-black/30 p-5 rounded-2xl border border-white/5">
-              <span className="text-lg mb-2 block">🥈 <strong>Silver (₹8,999)</strong></span>
-              <p className="text-xs text-white/70 leading-relaxed font-medium">
+            <div className="bg-black/40 p-5 rounded-2xl border border-white/10">
+              <span className="text-lg mb-2 block text-white font-bold">🥈 Silver (₹8,999)</span>
+              <p className="text-xs text-white/80 leading-relaxed font-medium">
                 Budget-friendly, ideal for birthdays and small celebrations.
               </p>
             </div>
-            <div className="bg-black/30 p-5 rounded-2xl border border-brand-perk/30">
-              <span className="text-lg mb-2 block text-brand-perk">🥇 <strong>Gold (₹17,999)</strong></span>
-              <p className="text-xs text-white/70 leading-relaxed font-medium">
+            <div className="bg-black/40 p-5 rounded-2xl border border-brand-perk/40 shadow-[0_0_15px_rgba(190,255,80,0.15)]">
+              <span className="text-lg mb-2 block text-brand-perk font-bold">🥇 Gold (₹17,999)</span>
+              <p className="text-xs text-white/80 leading-relaxed font-medium">
                 Roughly 2× Silver but feels significantly more premium, making it the best value pick.
               </p>
             </div>
-            <div className="bg-black/30 p-5 rounded-2xl border border-white/5">
-              <span className="text-lg mb-2 block">💎 <strong>Platinum (₹29,999)</strong></span>
-              <p className="text-xs text-white/70 leading-relaxed font-medium">
+            <div className="bg-black/40 p-5 rounded-2xl border border-white/10">
+              <span className="text-lg mb-2 block text-cyan-300 font-bold">💎 Platinum (₹29,999)</span>
+              <p className="text-xs text-white/80 leading-relaxed font-medium">
                 Targets hosts who want a hassle-free, Instagram-worthy event with premium decor & content.
               </p>
             </div>
