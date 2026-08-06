@@ -98,7 +98,7 @@ export default function Offerings() {
                 THE VIBE BOX
               </h2>
               <div className="mt-2">
-                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block rotate-[-1deg] shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Engineered to Keep Every Bite Perfect.
                 </span>
               </div>
@@ -119,7 +119,7 @@ export default function Offerings() {
                 See what our customers say
               </h2>
               <div className="mt-2">
-                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block rotate-[1deg] shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Hosts Are Obsessed.
                 </span>
               </div>
