@@ -2,13 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Download } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
-import { Application } from "@splinetool/runtime";
+import { useRef } from "react";
 
 export default function AppPromo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
   
   // Scroll linked motion
   const { scrollYProgress } = useScroll({
@@ -16,50 +13,11 @@ export default function AppPromo() {
     offset: ["start end", "center center"]
   });
 
-  const scrollRotateY = useTransform(scrollYProgress, [0, 1], [180, 0]);
+  const scrollRotateY = useTransform(scrollYProgress, [0, 1], [45, 0]);
   const scrollRotateX = useTransform(scrollYProgress, [0, 1], [15, 2]);
-  const scrollScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const scrollY = useTransform(scrollYProgress, [0, 1], [120, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-
-  useEffect(() => {
-    if (canvasRef.current) {
-      const app = new Application(canvasRef.current);
-      app
-        .load("https://prod.spline.design/lRbkLYUvuebuY9iDjhN7OU9Q/scene.splinecode")
-        .then(() => {
-          setIsLoading(false);
-          // Hide any 2D grey card background rectangle object inside Spline scene
-          try {
-            const objects = app.getObjects ? app.getObjects() : [];
-            objects.forEach((obj: any) => {
-              if (obj && obj.name) {
-                const name = obj.name.toLowerCase();
-                if (
-                  name.includes("rectangle") || 
-                  name.includes("bg") || 
-                  name.includes("background") || 
-                  name.includes("card") ||
-                  name.includes("plane")
-                ) {
-                  obj.visible = false;
-                }
-              }
-            });
-          } catch (e) {
-            console.log("Spline scene objects loaded", e);
-          }
-        })
-        .catch((err) => {
-          console.error("Spline load error:", err);
-          setIsLoading(false);
-        });
-
-      return () => {
-        app.dispose();
-      };
-    }
-  }, []);
+  const scrollScale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
+  const scrollY = useTransform(scrollYProgress, [0, 1], [80, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [0, 1, 1]);
 
   return (
     <section id="app" className="py-24 bg-brand relative overflow-hidden">
@@ -87,12 +45,16 @@ export default function AppPromo() {
               Download The Vibe House app to browse packages, customize your menu, track your live chefs, and manage your guest list effortlessly. 
             </p>
             
-            <div className="bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 backdrop-blur-sm max-w-md">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-[#FF5500] text-white text-xs font-bold px-2 py-1 rounded">DEAL FEAST</div>
-                <span className="text-white font-semibold">App Exclusive Offer</span>
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 backdrop-blur-sm max-w-md shadow-xl">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="bg-[#FF5500] text-white text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
+                  DEAL FEAST
+                </div>
+                <span className="text-white font-bold text-sm">App Exclusive Offer</span>
               </div>
-              <p className="text-white/90 text-sm">Get up to <span className="font-bold text-brand-accent text-lg">70% OFF</span> your first VibeBox order when you book through the app.</p>
+              <p className="text-white/90 text-sm leading-relaxed">
+                Get up to <span className="font-black text-brand-perk text-lg bg-brand-perk/15 px-3 py-1 rounded-xl border border-brand-perk/40 inline-block shadow-[0_0_20px_rgba(190,255,80,0.35)] mx-1">10% OFF</span> your first VibeBox order when you book through the app.
+              </p>
             </div>
             
             <div className="flex flex-wrap gap-4">
@@ -105,7 +67,7 @@ export default function AppPromo() {
                 <Download size={20} />
                 <div className="text-left">
                   <div className="text-[10px] uppercase tracking-wider text-gray-500">Download on the</div>
-                  <div className="text-sm leading-none">App Store</div>
+                  <div className="text-sm leading-none font-bold">App Store</div>
                 </div>
               </a>
               <a 
@@ -117,19 +79,19 @@ export default function AppPromo() {
                 <Download size={20} />
                 <div className="text-left">
                   <div className="text-[10px] uppercase tracking-wider text-gray-500">GET IT ON</div>
-                  <div className="text-sm leading-none">Google Play</div>
+                  <div className="text-sm leading-none font-bold">Google Play</div>
                 </div>
               </a>
             </div>
           </motion.div>
 
-          {/* Right Visual (Official Spline 3D iPhone Canvas) */}
+          {/* Right Visual (Spline 3D iPhone Mockup) */}
           <div 
             ref={containerRef} 
-            className="relative flex flex-col justify-center items-center lg:items-end perspective-[2000px] h-full min-h-[650px] lg:min-h-[750px]"
+            className="relative flex flex-col justify-center items-center lg:items-end perspective-[2000px] h-full min-h-[650px] lg:min-h-[720px]"
           >
             <motion.div 
-              className="relative w-full max-w-[500px] lg:max-w-[600px] h-[650px] sm:h-[720px] shrink-0"
+              className="relative w-[340px] sm:w-[380px] h-[660px] sm:h-[710px] shrink-0 rounded-[3.5rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.6)] border border-white/20 bg-[#16161a]"
               style={{ 
                 rotateY: scrollRotateY, 
                 rotateX: scrollRotateX, 
@@ -139,25 +101,16 @@ export default function AppPromo() {
                 transformStyle: 'preserve-3d' 
               }}
             >
-              {/* Loading Indicator */}
-              {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white/70 gap-3 z-20">
-                  <div className="w-8 h-8 border-2 border-brand-perk border-t-transparent rounded-full animate-spin" />
-                  <span className="text-xs font-semibold">Loading 3D iPhone...</span>
-                </div>
-              )}
-
-              {/* Native WebGL Canvas for Spline 3D Scene */}
-              <canvas 
-                ref={canvasRef} 
-                className="w-full h-full block touch-none cursor-grab active:cursor-grabbing outline-none"
+              {/* Spline Interactive 3D Model Iframe with zoomed framing */}
+              <iframe 
+                src="https://my.spline.design/iphone14procopy-lRbkLYUvuebuY9iDjhN7OU9Q/" 
+                frameBorder="0" 
+                width="100%" 
+                height="100%" 
+                className="w-full h-full border-0 pointer-events-auto scale-110"
+                title="3D iPhone Mockup"
               />
             </motion.div>
-            
-            {/* Interactive Drag Helper Badge */}
-            <div className="mt-4 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-xs backdrop-blur-md flex items-center gap-2 shadow-xl">
-              <span>🖱️ Drag mouse to spin 3D iPhone 360°</span>
-            </div>
 
             {/* Decorative background glow behind phone */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-brand-perk/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
