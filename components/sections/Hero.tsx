@@ -24,7 +24,7 @@ export default function Hero() {
           {/* New Promoted H1 */}
           <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black text-white leading-[1.05] mb-6 tracking-tight drop-shadow-xl">
             Party tumhari.<br/>
-            <span className="text-brand-perk">Tension hamari.</span>
+            <span className="text-brand-perk">Tension humari.</span>
           </h1>
           
           {/* Subheadline */}
