@@ -79,10 +79,10 @@ export default function AppPromo() {
             </div>
           </motion.div>
 
-          {/* Right Visual (Spline 3D iPhone Mockup) */}
-          <div ref={containerRef} className="relative flex justify-center lg:justify-end perspective-[2000px] h-full min-h-[650px] sm:min-h-[720px] items-center">
+          {/* Right Visual (Spline 3D iPhone Mockup - Seamless 3D Canvas) */}
+          <div ref={containerRef} className="relative flex flex-col justify-center items-center lg:items-end h-full min-h-[700px] lg:min-h-[800px]">
             <motion.div 
-              className="relative w-full max-w-[420px] h-[650px] sm:h-[700px] shrink-0"
+              className="relative w-full max-w-[550px] lg:max-w-[650px] h-[680px] sm:h-[780px] shrink-0"
               style={{ 
                 rotateY, 
                 rotateX, 
@@ -92,17 +92,22 @@ export default function AppPromo() {
                 transformStyle: 'preserve-3d' 
               }}
             >
-              {/* Spline Interactive 3D Model Iframe */}
+              {/* Spline Interactive 3D Model Canvas */}
               <iframe 
                 src="https://my.spline.design/iphone14procopy-lRbkLYUvuebuY9iDjhN7OU9Q/" 
                 frameBorder="0" 
                 width="100%" 
                 height="100%" 
-                className="w-full h-full rounded-[3.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 pointer-events-auto"
+                className="w-full h-full border-0 bg-transparent pointer-events-auto"
                 title="3D iPhone 14 Pro Mockup"
               />
             </motion.div>
             
+            {/* Interactive Drag Helper Pill */}
+            <div className="mt-4 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-semibold backdrop-blur-md flex items-center gap-2 shadow-lg">
+              <span>🖱️ Drag mouse to spin 3D iPhone</span>
+            </div>
+
             {/* Decorative background glow behind phone */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-brand-perk/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
           </div>
