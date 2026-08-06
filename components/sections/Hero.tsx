@@ -46,9 +46,16 @@ export default function Hero() {
               Book an Event
             </Button>
             {/* Secondary CTA downgraded */}
-            <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold px-10 text-white border-white/20 hover:bg-white/10 backdrop-blur-sm">
-              Download App
-            </Button>
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold px-10 text-white border-white/20 hover:bg-white/10 backdrop-blur-sm">
+                Download App
+              </Button>
+            </a>
           </div>
 
           {/* Occasion Chip Selector */}

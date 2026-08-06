@@ -18,7 +18,7 @@ export default function AppPromo() {
   const y = useTransform(scrollYProgress, [0, 1], [150, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
   return (
-    <section className="py-24 bg-brand relative overflow-hidden">
+    <section id="app" className="py-24 bg-brand relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
       
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -52,20 +52,30 @@ export default function AppPromo() {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <button className="flex items-center gap-3 bg-white text-brand px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg">
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white text-brand px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg"
+              >
                 <Download size={20} />
                 <div className="text-left">
                   <div className="text-[10px] uppercase tracking-wider text-gray-500">Download on the</div>
                   <div className="text-sm leading-none">App Store</div>
                 </div>
-              </button>
-              <button className="flex items-center gap-3 bg-white text-brand px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg">
+              </a>
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white text-brand px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg"
+              >
                 <Download size={20} />
                 <div className="text-left">
                   <div className="text-[10px] uppercase tracking-wider text-gray-500">GET IT ON</div>
                   <div className="text-sm leading-none">Google Play</div>
                 </div>
-              </button>
+              </a>
             </div>
           </motion.div>
 
