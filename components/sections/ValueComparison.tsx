@@ -21,11 +21,6 @@ const comparisonData = [
     vibe: "Curated aesthetic theme decor & mood staging"
   },
   {
-    feature: "Hosting Stress & Bartending",
-    diy: "You spend all night mixing drinks & serving guests",
-    vibe: "Professional bartenders & waitstaff serve your guests"
-  },
-  {
     feature: "Post-Party Cleanup",
     diy: "You wake up to a messy house & dirty dishes next morning",
     vibe: "Spotless post-event cleanup included standard"
