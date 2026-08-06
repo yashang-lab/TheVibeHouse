@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Check, X, ShieldCheck, Sparkles, Clock, DollarSign, Award, Utensils, Brush, Smile } from "lucide-react";
-import HostProblemsBackground from "./HostProblemsBackground";
 
 const comparisonData = [
   {
@@ -60,7 +59,6 @@ export default function ValueComparison() {
     <section id="why-us" className="py-24 relative transparent overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 z-0 bg-[#E8E8DE]" />
-      <HostProblemsBackground />
       
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         
