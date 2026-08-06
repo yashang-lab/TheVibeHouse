@@ -74,7 +74,7 @@ export default function Offerings() {
         {/* Centered & Enlarged Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white leading-tight">
-            How we <br className="md:hidden" /><span className="text-[#14140F] bg-brand-perk px-4 rounded-xl py-2 inline-block mt-2 rotate-[-2deg] shadow-[0_0_30px_rgba(190,255,80,0.3)]">bring the vibe</span>
+            See what <br className="md:hidden" /><span className="text-[#14140F] bg-brand-perk px-4 rounded-xl py-2 inline-block mt-2 rotate-[-2deg] shadow-[0_0_30px_rgba(190,255,80,0.3)]">our customers say</span>
           </h2>
           <p className="text-xl md:text-2xl text-white/80 drop-shadow-md font-medium">
             From DIY boxes to full-scale VIP management. Choose how you host.
