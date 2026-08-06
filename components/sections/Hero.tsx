@@ -20,7 +20,7 @@ export default function Hero() {
           {/* Top Section: India's Leading End-To-End Solution */}
           <div className="mb-10">
             <p className="text-base md:text-xl font-black text-white/90 mb-5 tracking-widest uppercase">
-              <span className="text-3xl md:text-5xl font-black text-brand-perk tracking-wider inline-block mr-1.5 drop-shadow-[0_0_20px_rgba(190,255,80,0.4)]">INDIA&apos;S</span> LEADING END-TO-END SOLUTION FOR:
+              <span className="text-3xl md:text-5xl font-black text-white tracking-wider inline-block mr-1.5">INDIA&apos;S</span> LEADING END-TO-END SOLUTION FOR:
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
