@@ -72,6 +72,24 @@ const ReelCard = ({
   );
 };
 
+const floatingElements = [
+  // Left Side (behind left reel)
+  { src: "/3d-elements/french_fries_3d.png", x: -570, y: -180, delay: 0.1, rotate: -15, scale: 1.15, size: 140 },
+  { src: "/3d-elements/hamburger_3d.png", x: -540, y: 60, delay: 0.2, rotate: -12, scale: 1.25, size: 160 },
+  { src: "/3d-elements/clinking_glasses_3d.png", x: -580, y: 310, delay: 0.3, rotate: 10, scale: 1.2, size: 150 },
+  { src: "/3d-elements/doughnut_3d.png", x: -440, y: -290, delay: 0.25, rotate: 20, scale: 1.25, size: 145 },
+
+  // Center Gap (behind gap between reels)
+  { src: "/3d-elements/party_popper_3d.png", x: 0, y: -180, delay: 0.15, rotate: -18, scale: 1.2, size: 155 },
+  { src: "/3d-elements/balloon_3d.png", x: 0, y: 220, delay: 0.25, rotate: 15, scale: 1.25, size: 165 },
+
+  // Right Side (behind right reel)
+  { src: "/3d-elements/birthday_cake_3d.png", x: 540, y: -180, delay: 0.15, rotate: 12, scale: 1.3, size: 180 },
+  { src: "/3d-elements/confetti_ball_3d.png", x: 580, y: 70, delay: 0.2, rotate: -12, scale: 1.3, size: 150 },
+  { src: "/3d-elements/pizza_3d.png", x: 530, y: 310, delay: 0.3, rotate: 22, scale: 1.25, size: 160 },
+  { src: "/3d-elements/hot_dog_3d.png", x: 440, y: -290, delay: 0.25, rotate: -18, scale: 1.2, size: 150 },
+];
+
 export default function Offerings() {
   const [activeUnmutedId, setActiveUnmutedId] = useState<string | null>(null);
 
@@ -82,6 +100,35 @@ export default function Offerings() {
   return (
     <section id="services" className="pt-12 pb-24 relative transparent overflow-hidden">
       
+      {/* Floating 3D Elements Placed Behind the Reels */}
+      <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+        {floatingElements.map((item, i) => (
+          <motion.div
+            key={i}
+            className="hidden lg:block absolute top-1/2 left-1/2 drop-shadow-2xl z-0 pointer-events-none"
+            style={{ originX: 0.5, originY: 0.5, width: item.size, height: item.size }}
+            initial={{ x: "-50%", y: "-50%", scale: 0.2, rotate: 0, opacity: 0 }}
+            whileInView={{ 
+              x: `calc(-50% + ${item.x}px)`, 
+              y: `calc(-50% + ${item.y}px)`, 
+              scale: item.scale,
+              rotate: item.rotate,
+              opacity: 1
+            }}
+            viewport={{ once: true }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 90, 
+              damping: 15, 
+              delay: item.delay,
+              opacity: { duration: 0.6, ease: "easeOut", delay: item.delay }
+            }}
+          >
+            <img src={item.src} alt="" className="w-full h-full object-contain drop-shadow-[0_25px_25px_rgba(0,0,0,0.6)]" />
+          </motion.div>
+        ))}
+      </div>
+
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         
         {/* 2 Reels Side-by-Side Grid with Dedicated Headers */}
