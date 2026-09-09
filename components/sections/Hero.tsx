@@ -11,14 +11,94 @@ const carouselImages = [
   { src: "/hero-carousel/celebration.jpg", alt: "Family Birthday Celebration with Cake Cutting" },
 ];
 
+const headerLeftElements = [
+  { src: "/3d-elements/french_fries_3d.png", x: 0, y: -95, rotate: -15, scale: 1.15, size: 130, delay: 0.25 },
+  { src: "/3d-elements/hamburger_3d.png", x: -15, y: 35, rotate: -10, scale: 1.25, size: 145, delay: 0.4 },
+  { src: "/3d-elements/clinking_glasses_3d.png", x: 10, y: 165, rotate: 14, scale: 1.2, size: 135, delay: 0.55 },
+];
+
+const headerRightElements = [
+  { src: "/3d-elements/birthday_cake_3d.png", x: 0, y: -95, rotate: 12, scale: 1.25, size: 155, delay: 0.3 },
+  { src: "/3d-elements/pizza_3d.png", x: 15, y: 35, rotate: 20, scale: 1.2, size: 140, delay: 0.45 },
+  { src: "/3d-elements/balloon_3d.png", x: -10, y: 165, rotate: -15, scale: 1.25, size: 140, delay: 0.6 },
+];
+
 export default function Hero() {
 
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
       
-      {/* Horizontal Background Photo Carousel (Sliding Left-to-Right Behind Text) */}
+      {/* Top Header Floating 3D Elements (Left Side: Fries, Burger, Drinks) */}
+      <div className="hidden lg:block absolute left-4 xl:left-12 2xl:left-24 top-24 pointer-events-none z-20">
+        <div className="relative w-36 h-96">
+          {headerLeftElements.map((item, i) => (
+            <motion.div
+              key={i}
+              className="absolute left-1/2 drop-shadow-2xl"
+              style={{
+                width: item.size,
+                height: item.size,
+                top: `calc(50% + ${item.y}px)`,
+                left: `calc(50% + ${item.x}px)`,
+                transform: "translate(-50%, -50%)"
+              }}
+              initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
+              animate={{ 
+                scale: item.scale,
+                rotate: item.rotate,
+                opacity: 1
+              }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 110, 
+                damping: 13, 
+                delay: item.delay,
+                opacity: { duration: 0.5, ease: "easeOut", delay: item.delay }
+              }}
+            >
+              <img src={item.src} alt="" className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Top Header Floating 3D Elements (Right Side: Cake, Pizza, Balloon) */}
+      <div className="hidden lg:block absolute right-4 xl:right-12 2xl:right-24 top-24 pointer-events-none z-20">
+        <div className="relative w-36 h-96">
+          {headerRightElements.map((item, i) => (
+            <motion.div
+              key={i}
+              className="absolute left-1/2 drop-shadow-2xl"
+              style={{
+                width: item.size,
+                height: item.size,
+                top: `calc(50% + ${item.y}px)`,
+                left: `calc(50% + ${item.x}px)`,
+                transform: "translate(-50%, -50%)"
+              }}
+              initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
+              animate={{ 
+                scale: item.scale,
+                rotate: item.rotate,
+                opacity: 1
+              }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 110, 
+                damping: 13, 
+                delay: item.delay,
+                opacity: { duration: 0.5, ease: "easeOut", delay: item.delay }
+              }}
+            >
+              <img src={item.src} alt="" className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Horizontal Background Photo Carousel (Starting Below Header, Sliding Left-to-Right Behind Text) */}
       <div 
-        className="absolute top-16 md:top-20 bottom-28 md:bottom-32 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-center"
+        className="absolute top-[260px] md:top-[280px] bottom-16 md:bottom-20 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-center"
         style={{
           maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
@@ -36,7 +116,7 @@ export default function Hero() {
           {[...carouselImages, ...carouselImages].map((item, idx) => (
             <div
               key={idx}
-              className="relative w-[320px] sm:w-[380px] md:w-[440px] lg:w-[480px] h-[520px] sm:h-[590px] md:h-[650px] lg:h-[700px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
+              className="relative w-[300px] sm:w-[360px] md:w-[410px] lg:w-[450px] h-[480px] sm:h-[540px] md:h-[600px] lg:h-[640px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
             >
               <img
                 src={item.src}
