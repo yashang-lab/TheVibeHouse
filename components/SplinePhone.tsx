@@ -43,9 +43,56 @@ export default function SplinePhone() {
           canvasRef.current.style.backgroundColor = "transparent";
         }
 
-        // Disable accidental scroll zoom so page scrolling is smooth
-        if (app._controls?.orbitControls) {
-          app._controls.orbitControls.enableZoom = false;
+        // Lock translation/panning completely so the phone is fixed in X and Y axis
+        const oc = app._controls?.orbitControls;
+        if (oc) {
+          oc.enablePan = false;
+          oc.enableZoom = false;
+          oc.enableRotate = true;
+
+          // Override pan functions to prevent any programmatic or gesture translation
+          oc.pan = () => {};
+          oc.panLeft = () => {};
+          oc.panUp = () => {};
+          if (oc.panV?.set) {
+            oc.panV.set(0, 0, 0);
+          }
+
+          // Disable right-click and middle-click pan
+          if (oc.mouseButtons) {
+            oc.mouseButtons.RIGHT = -1;
+            oc.mouseButtons.MIDDLE = -1;
+          }
+
+          // Disable multi-touch panning
+          if (oc.touches) {
+            oc.touches.TWO = -1;
+          }
+
+          // Ensure polar angles allow complete vertical rotation/flipping (top to bottom)
+          oc.minPolarAngle = 0;
+          oc.maxPolarAngle = Math.PI;
+
+          // Allow infinite 360-degree horizontal rotation/flipping (front, sides, back)
+          oc.minAzimuthAngle = -Infinity;
+          oc.maxAzimuthAngle = Infinity;
+
+          // Freeze target coordinates so it never shifts off-center
+          const initialTarget = oc.target.clone();
+          oc.addEventListener("change", () => {
+            if (
+              oc.target.x !== initialTarget.x ||
+              oc.target.y !== initialTarget.y ||
+              oc.target.z !== initialTarget.z
+            ) {
+              oc.target.copy(initialTarget);
+            }
+          });
+        }
+
+        // Expose app for inspection if needed
+        if (typeof window !== "undefined") {
+          (window as any).__splineApp = app;
         }
 
         setIsLoading(false);
