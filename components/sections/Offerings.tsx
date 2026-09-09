@@ -116,7 +116,7 @@ export default function Offerings() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-5"
           >
-            Real Parties. <span className="text-brand-perk drop-shadow-[0_0_25px_rgba(190,255,80,0.35)]">Raving Hosts.</span>
+            Real Parties. <span className="text-brand-perk drop-shadow-[0_0_25px_rgba(190,255,80,0.35)]">Real Experiences.</span>
           </motion.h2>
 
           <motion.p
