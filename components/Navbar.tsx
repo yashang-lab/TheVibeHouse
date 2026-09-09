@@ -48,7 +48,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {["Services", "Packages", "Why Us", "App", "FAQ"].map((item) => (
+            {["Testimonials", "Packages", "Why Us", "App", "FAQ"].map((item) => (
               <Link 
                 key={item} 
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
@@ -82,7 +82,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-[#111111] border-b border-white/10 p-6 flex flex-col gap-4 shadow-xl rounded-b-3xl">
-            {["Services", "Packages", "Why Us", "App", "FAQ"].map((item) => (
+            {["Testimonials", "Packages", "Why Us", "App", "FAQ"].map((item) => (
               <Link 
                 key={item} 
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
