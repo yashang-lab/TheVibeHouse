@@ -11,79 +11,40 @@ const carouselImages = [
   { src: "/hero-carousel/celebration.jpg", alt: "Family Birthday Celebration with Cake Cutting" },
 ];
 
-const carouselImagesRight = [
-  carouselImages[2], // cake.jpg
-  carouselImages[3], // celebration.jpg
-  carouselImages[0], // catering.jpg
-  carouselImages[1], // stage-decor.jpg
-];
-
 export default function Hero() {
 
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
       
-      {/* Left Vertical Photo Carousel */}
+      {/* Horizontal Background Photo Carousel (Sliding Left-to-Right Behind Text) */}
       <div 
-        className="hidden lg:block absolute left-3 xl:left-8 2xl:left-14 top-16 bottom-36 w-[180px] xl:w-[230px] 2xl:w-[270px] overflow-hidden pointer-events-none z-0 lg:opacity-60 xl:opacity-85 2xl:opacity-100 transition-opacity"
+        className="absolute top-16 md:top-20 bottom-28 md:bottom-32 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-center"
         style={{
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+          maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
         }}
       >
         <motion.div
-          className="flex flex-col gap-6"
-          animate={{ y: ["0%", "-50%"] }}
+          className="flex gap-6 md:gap-8 shrink-0"
+          animate={{ x: ["-50%", "0%"] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 28,
+            duration: 38,
           }}
         >
           {[...carouselImages, ...carouselImages].map((item, idx) => (
             <div
               key={idx}
-              className="relative w-full aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/15 shadow-[0_20px_45px_rgba(0,0,0,0.7)] bg-[#141414] shrink-0 group pointer-events-auto hover:border-brand-perk/40 transition-colors"
+              className="relative w-[320px] sm:w-[380px] md:w-[440px] lg:w-[480px] h-[520px] sm:h-[590px] md:h-[650px] lg:h-[700px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
             >
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Right Vertical Photo Carousel */}
-      <div 
-        className="hidden lg:block absolute right-3 xl:right-8 2xl:right-14 top-16 bottom-36 w-[180px] xl:w-[230px] 2xl:w-[270px] overflow-hidden pointer-events-none z-0 lg:opacity-60 xl:opacity-85 2xl:opacity-100 transition-opacity"
-        style={{
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
-        }}
-      >
-        <motion.div
-          className="flex flex-col gap-6"
-          animate={{ y: ["-50%", "0%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 28,
-          }}
-        >
-          {[...carouselImagesRight, ...carouselImagesRight].map((item, idx) => (
-            <div
-              key={idx}
-              className="relative w-full aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/15 shadow-[0_20px_45px_rgba(0,0,0,0.7)] bg-[#141414] shrink-0 group pointer-events-auto hover:border-brand-perk/40 transition-colors"
-            >
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+              {/* Cinematic dark vignette overlay to keep foreground text 100% legible */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/55 pointer-events-none" />
             </div>
           ))}
         </motion.div>
@@ -98,6 +59,8 @@ export default function Hero() {
           transition={{ delay: 0.1 }}
           className="max-w-4xl mx-auto mb-12 relative z-20"
         >
+          {/* Subtle ambient back-glow for crisp text contrast against moving photos */}
+          <div className="absolute -inset-6 sm:-inset-10 bg-black/50 rounded-[3rem] blur-3xl -z-10 pointer-events-none" />
           {/* Top Section: India's Leading End-To-End Solution */}
           <div className="mb-10">
             <p className="text-base md:text-xl font-black text-white/90 mb-5 tracking-widest uppercase">
