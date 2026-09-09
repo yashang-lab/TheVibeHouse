@@ -12,15 +12,19 @@ const carouselImages = [
 ];
 
 const headerLeftElements = [
-  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -12, size: 76, delay: 0.2, hideOnLg: false },
-  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 84, delay: 0.35, hideOnLg: false },
-  { src: "/3d-elements/clinking_glasses_3d.png", name: "Drinks", rotate: 12, size: 74, delay: 0.5, hideOnLg: true },
+  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -12, size: 60, delay: 0.15, hideOnLg: false },
+  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 64, delay: 0.25, hideOnLg: false },
+  { src: "/3d-elements/hot_dog_3d.png", name: "Hot Dog", rotate: 12, size: 60, delay: 0.35, hideOnLg: true },
+  { src: "/3d-elements/doughnut_3d.png", name: "Doughnut", rotate: -10, size: 58, delay: 0.45, hideOnLg: true },
+  { src: "/3d-elements/clinking_glasses_3d.png", name: "Drinks", rotate: 14, size: 60, delay: 0.55, hideOnLg: false },
 ];
 
 const headerRightElements = [
-  { src: "/3d-elements/birthday_cake_3d.png", name: "Cake", rotate: 8, size: 84, delay: 0.25, hideOnLg: false },
-  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 16, size: 76, delay: 0.4, hideOnLg: false },
-  { src: "/3d-elements/balloon_3d.png", name: "Balloon", rotate: -12, size: 72, delay: 0.55, hideOnLg: true },
+  { src: "/3d-elements/party_popper_3d.png", name: "Popper", rotate: -14, size: 60, delay: 0.2, hideOnLg: false },
+  { src: "/3d-elements/birthday_cake_3d.png", name: "Cake", rotate: 8, size: 66, delay: 0.3, hideOnLg: false },
+  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 16, size: 62, delay: 0.4, hideOnLg: true },
+  { src: "/3d-elements/confetti_ball_3d.png", name: "Confetti", rotate: -8, size: 58, delay: 0.5, hideOnLg: true },
+  { src: "/3d-elements/balloon_3d.png", name: "Balloon", rotate: 12, size: 58, delay: 0.6, hideOnLg: false },
 ];
 
 export default function Hero() {
@@ -28,8 +32,8 @@ export default function Hero() {
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
       
-      {/* Top Header Floating 3D Elements (Left Side: Fries, Burger, Drinks) */}
-      <div className="hidden lg:flex items-center gap-3 xl:gap-5 absolute left-4 sm:left-6 xl:left-10 2xl:left-16 top-28 xl:top-32 pointer-events-none z-20">
+      {/* Top Header Floating 3D Elements (Left Side: 5 items filling empty space) */}
+      <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 absolute left-2 xl:left-4 2xl:left-10 top-28 xl:top-32 pointer-events-none z-20">
         {headerLeftElements.map((item, i) => (
           <motion.div
             key={i}
@@ -58,8 +62,8 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Top Header Floating 3D Elements (Right Side: Cake, Pizza, Balloon) */}
-      <div className="hidden lg:flex items-center gap-3 xl:gap-5 absolute right-4 sm:right-6 xl:right-10 2xl:right-16 top-28 xl:top-32 pointer-events-none z-20">
+      {/* Top Header Floating 3D Elements (Right Side: 5 items filling empty space) */}
+      <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 absolute right-2 xl:right-4 2xl:right-10 top-28 xl:top-32 pointer-events-none z-20">
         {headerRightElements.map((item, i) => (
           <motion.div
             key={i}
@@ -88,9 +92,9 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Horizontal Background Photo Carousel (Starting Below Header, Sliding Left-to-Right Behind Text) */}
+      {/* Horizontal Background Photo Carousel (Starting directly from the text 'Party tumhari', Sliding Left-to-Right Behind Text) */}
       <div 
-        className="absolute top-[260px] md:top-[280px] bottom-16 md:bottom-20 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-center"
+        className="absolute top-[220px] sm:top-[230px] md:top-[235px] bottom-16 md:bottom-20 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-start"
         style={{
           maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
@@ -108,7 +112,7 @@ export default function Hero() {
           {[...carouselImages, ...carouselImages].map((item, idx) => (
             <div
               key={idx}
-              className="relative w-[300px] sm:w-[360px] md:w-[410px] lg:w-[450px] h-[480px] sm:h-[540px] md:h-[600px] lg:h-[640px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
+              className="relative w-[300px] sm:w-[360px] md:w-[410px] lg:w-[450px] h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
             >
               <img
                 src={item.src}
