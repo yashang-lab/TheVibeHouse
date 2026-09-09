@@ -12,19 +12,23 @@ const carouselImages = [
 ];
 
 const headerLeftElements = [
-  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -12, size: 60, delay: 0.15, hideOnLg: false },
-  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 64, delay: 0.25, hideOnLg: false },
-  { src: "/3d-elements/hot_dog_3d.png", name: "Hot Dog", rotate: 12, size: 60, delay: 0.35, hideOnLg: true },
-  { src: "/3d-elements/doughnut_3d.png", name: "Doughnut", rotate: -10, size: 58, delay: 0.45, hideOnLg: true },
-  { src: "/3d-elements/clinking_glasses_3d.png", name: "Drinks", rotate: 14, size: 60, delay: 0.55, hideOnLg: false },
+  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -12, size: 52, delay: 0.1, hideOn: "block" },
+  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 56, delay: 0.18, hideOn: "block" },
+  { src: "/3d-elements/hot_dog_3d.png", name: "Hot Dog", rotate: 12, size: 52, delay: 0.26, hideOn: "hidden xl:block" },
+  { src: "/3d-elements/doughnut_3d.png", name: "Doughnut", rotate: -10, size: 50, delay: 0.34, hideOn: "hidden min-[1400px]:block" },
+  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 14, size: 52, delay: 0.42, hideOn: "hidden 2xl:block" },
+  { src: "/3d-elements/confetti_ball_3d.png", name: "Confetti", rotate: -8, size: 50, delay: 0.5, hideOn: "hidden xl:block" },
+  { src: "/3d-elements/clinking_glasses_3d.png", name: "Drinks", rotate: 12, size: 52, delay: 0.58, hideOn: "block" },
 ];
 
 const headerRightElements = [
-  { src: "/3d-elements/party_popper_3d.png", name: "Popper", rotate: -14, size: 60, delay: 0.2, hideOnLg: false },
-  { src: "/3d-elements/birthday_cake_3d.png", name: "Cake", rotate: 8, size: 66, delay: 0.3, hideOnLg: false },
-  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 16, size: 62, delay: 0.4, hideOnLg: true },
-  { src: "/3d-elements/confetti_ball_3d.png", name: "Confetti", rotate: -8, size: 58, delay: 0.5, hideOnLg: true },
-  { src: "/3d-elements/balloon_3d.png", name: "Balloon", rotate: 12, size: 58, delay: 0.6, hideOnLg: false },
+  { src: "/3d-elements/party_popper_3d.png", name: "Popper", rotate: -14, size: 52, delay: 0.15, hideOn: "block" },
+  { src: "/3d-elements/birthday_cake_3d.png", name: "Cake", rotate: 8, size: 56, delay: 0.23, hideOn: "block" },
+  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 16, size: 52, delay: 0.31, hideOn: "hidden xl:block" },
+  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 54, delay: 0.39, hideOn: "hidden min-[1400px]:block" },
+  { src: "/3d-elements/doughnut_3d.png", name: "Doughnut", rotate: 12, size: 50, delay: 0.47, hideOn: "hidden 2xl:block" },
+  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -10, size: 52, delay: 0.55, hideOn: "hidden xl:block" },
+  { src: "/3d-elements/balloon_3d.png", name: "Balloon", rotate: 12, size: 52, delay: 0.63, hideOn: "block" },
 ];
 
 export default function Hero() {
@@ -32,12 +36,12 @@ export default function Hero() {
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
       
-      {/* Top Header Floating 3D Elements (Left Side: 5 items filling empty space) */}
-      <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 absolute left-2 xl:left-4 2xl:left-10 top-28 xl:top-32 pointer-events-none z-20">
+      {/* Top Header Floating 3D Elements (Left Side: spans from outer edge right up to beside 'INDIA'S') */}
+      <div className="hidden lg:flex items-center justify-between absolute left-3 xl:left-6 2xl:left-10 right-[calc(50%+315px)] xl:right-[calc(50%+345px)] 2xl:right-[calc(50%+360px)] top-28 xl:top-32 pointer-events-none z-20">
         {headerLeftElements.map((item, i) => (
           <motion.div
             key={i}
-            className={`drop-shadow-2xl ${item.hideOnLg ? "hidden xl:block" : "block"}`}
+            className={`drop-shadow-2xl ${item.hideOn}`}
             style={{ width: item.size, height: item.size }}
             initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
             animate={{ 
@@ -62,12 +66,12 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Top Header Floating 3D Elements (Right Side: 5 items filling empty space) */}
-      <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 absolute right-2 xl:right-4 2xl:right-10 top-28 xl:top-32 pointer-events-none z-20">
+      {/* Top Header Floating 3D Elements (Right Side: spans from beside 'SOLUTION FOR:' right to outer edge) */}
+      <div className="hidden lg:flex items-center justify-between absolute left-[calc(50%+315px)] xl:left-[calc(50%+345px)] 2xl:left-[calc(50%+360px)] right-3 xl:right-6 2xl:right-10 top-28 xl:top-32 pointer-events-none z-20">
         {headerRightElements.map((item, i) => (
           <motion.div
             key={i}
-            className={`drop-shadow-2xl ${item.hideOnLg ? "hidden xl:block" : "block"}`}
+            className={`drop-shadow-2xl ${item.hideOn}`}
             style={{ width: item.size, height: item.size }}
             initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
             animate={{ 
