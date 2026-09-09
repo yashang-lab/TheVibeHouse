@@ -1,30 +1,26 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import { useRef } from "react";
+import dynamic from "next/dynamic";
+
+const SplinePhone = dynamic(() => import("../SplinePhone"), {
+  ssr: false,
+  loading: () => (
+    <div className="relative w-full h-[600px] sm:h-[680px] lg:h-[740px] flex flex-col items-center justify-center gap-3 text-white/50">
+      <div className="w-10 h-10 rounded-full border-2 border-brand-perk border-t-transparent animate-spin" />
+      <span className="text-xs font-semibold tracking-wider uppercase text-white/60">Loading 3D iPhone...</span>
+    </div>
+  )
+});
 
 export default function AppPromo() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Scroll linked motion
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "center center"]
-  });
-
-  const scrollRotateY = useTransform(scrollYProgress, [0, 1], [45, 0]);
-  const scrollRotateX = useTransform(scrollYProgress, [0, 1], [15, 2]);
-  const scrollScale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
-  const scrollY = useTransform(scrollYProgress, [0, 1], [80, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [0, 1, 1]);
-
   return (
     <section id="app" className="py-24 bg-brand relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
       
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Content */}
           <motion.div 
@@ -85,33 +81,14 @@ export default function AppPromo() {
             </div>
           </motion.div>
 
-          {/* Right Visual (Spline 3D iPhone Mockup) */}
-          <div 
-            ref={containerRef} 
-            className="relative flex flex-col justify-center items-center lg:items-end perspective-[2000px] h-full min-h-[650px] lg:min-h-[720px]"
-          >
-            <motion.div 
-              className="relative w-[320px] sm:w-[360px] h-[650px] sm:h-[700px] shrink-0 rounded-[3.2rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.7)] border border-white/20 bg-transparent flex items-center justify-center"
-              style={{ 
-                rotateY: scrollRotateY, 
-                rotateX: scrollRotateX, 
-                scale: scrollScale, 
-                y: scrollY, 
-                opacity,
-                transformStyle: 'preserve-3d' 
-              }}
-            >
-              {/* Spline Interactive 3D Model Iframe zoomed to crop out grey card */}
-              <iframe 
-                src="https://my.spline.design/iphone14procopy-lRbkLYUvuebuY9iDjhN7OU9Q/" 
-                frameBorder="0" 
-                className="w-[180%] h-[180%] shrink-0 border-0 pointer-events-auto scale-[1.75] origin-center -translate-x-[1%] -translate-y-[2%]"
-                title="3D iPhone Mockup"
-              />
-            </motion.div>
-
-            {/* Decorative background glow behind phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-brand-perk/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
+          {/* Right Visual (Seamless Floating 3D iPhone Mockup) */}
+          <div className="relative flex flex-col items-center justify-center">
+            <SplinePhone />
+            
+            {/* Interactive Drag Helper Badge */}
+            <div className="mt-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 font-medium text-xs backdrop-blur-md flex items-center gap-2 shadow-lg">
+              <span>🖱️ Click & Drag to rotate 3D iPhone 360°</span>
+            </div>
           </div>
 
         </div>
