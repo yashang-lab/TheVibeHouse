@@ -37,7 +37,7 @@ const ReelCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.6 }}
-      className="rounded-[2.5rem] overflow-hidden border border-white/15 shadow-2xl relative h-[65vh] md:h-[75vh] bg-black group hover:border-brand-perk/40 transition-all duration-500"
+      className="w-full aspect-[9/16] rounded-[2.5rem] overflow-hidden border border-white/15 shadow-2xl relative bg-black group hover:border-brand-perk/40 transition-all duration-500"
     >
       <video 
         ref={videoRef}
@@ -45,16 +45,16 @@ const ReelCard = ({
         loop 
         muted 
         playsInline 
-        className="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        className="absolute top-0 left-0 w-full h-full object-contain bg-black"
       >
         <source src={src} type="video/mp4" />
       </video>
 
       {/* Ambient Gradients for Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
 
       {/* Volume Enabler Button in Bottom Right Corner */}
-      <div className="absolute bottom-8 right-6 z-20">
+      <div className="absolute bottom-6 right-6 z-20">
         <button
           onClick={() => onToggleAudio(id)}
           className="w-12 h-12 rounded-full bg-black/60 border border-white/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-perk hover:text-[#14140F] hover:border-brand-perk transition-all shadow-xl active:scale-95 shrink-0"
@@ -82,19 +82,19 @@ export default function Offerings() {
   return (
     <section id="services" className="pt-12 pb-24 relative transparent overflow-hidden">
       
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1480px] relative z-10">
         
         {/* 3 Reels Side-by-Side Grid with Dedicated Headers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-full mx-auto items-start">
           
           {/* Column 1: Vibe Box Reel */}
           <div className="flex flex-col gap-4">
-            <div className="min-h-[115px] flex flex-col justify-end mb-2">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
+            <div className="min-h-[110px] flex flex-col justify-end mb-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-white tracking-tight leading-tight">
                 The Vibe Box
               </h2>
               <div className="mt-2.5">
-                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm lg:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Engineered to Keep Every Bite Perfect.
                 </span>
               </div>
@@ -111,12 +111,12 @@ export default function Offerings() {
 
           {/* Column 2: Shubham's Event Reel */}
           <div className="flex flex-col gap-4">
-            <div className="min-h-[115px] flex flex-col justify-end mb-2">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
+            <div className="min-h-[110px] flex flex-col justify-end mb-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-white tracking-tight leading-tight">
                 Shubham's Event
               </h2>
               <div className="mt-2.5">
-                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm lg:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   From Scratch To Full Vibe.
                 </span>
               </div>
@@ -133,12 +133,12 @@ export default function Offerings() {
 
           {/* Column 3: Customer Story / Ramya's Review Reel */}
           <div className="flex flex-col gap-4">
-            <div className="min-h-[115px] flex flex-col justify-end mb-2">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
+            <div className="min-h-[110px] flex flex-col justify-end mb-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-white tracking-tight leading-tight">
                 See what our customers say
               </h2>
               <div className="mt-2.5">
-                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm lg:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Hosts Are Obsessed.
                 </span>
               </div>
