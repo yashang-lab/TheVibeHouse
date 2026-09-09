@@ -82,19 +82,19 @@ export default function Offerings() {
   return (
     <section id="services" className="pt-12 pb-24 relative transparent overflow-hidden">
       
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         
-        {/* 2 Reels Side-by-Side Grid with Dedicated Headers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto items-start">
+        {/* 3 Reels Side-by-Side Grid with Dedicated Headers */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto items-start">
           
-          {/* Left Column: Vibe Box Reel */}
+          {/* Column 1: Vibe Box Reel */}
           <div className="flex flex-col gap-4">
-            <div className="min-h-[90px] flex flex-col justify-end mb-2">
-              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
+            <div className="min-h-[115px] flex flex-col justify-end mb-2">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
                 The Vibe Box
               </h2>
-              <div className="mt-2">
-                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+              <div className="mt-2.5">
+                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Engineered to Keep Every Bite Perfect.
                 </span>
               </div>
@@ -109,14 +109,36 @@ export default function Offerings() {
             />
           </div>
 
-          {/* Right Column: Customer Story / Ramya's Review Reel */}
+          {/* Column 2: Shubham's Event Reel */}
           <div className="flex flex-col gap-4">
-            <div className="min-h-[90px] flex flex-col justify-end mb-2">
-              <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
+            <div className="min-h-[115px] flex flex-col justify-end mb-2">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
+                Shubham's Event
+              </h2>
+              <div className="mt-2.5">
+                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+                  From Scratch To Full Vibe.
+                </span>
+              </div>
+            </div>
+
+            <ReelCard 
+              id="shubham-event"
+              src="/shubham-event.mp4" 
+              activeUnmutedId={activeUnmutedId}
+              onToggleAudio={handleToggleAudio}
+              delay={0.1} 
+            />
+          </div>
+
+          {/* Column 3: Customer Story / Ramya's Review Reel */}
+          <div className="flex flex-col gap-4">
+            <div className="min-h-[115px] flex flex-col justify-end mb-2">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-tight">
                 See what our customers say
               </h2>
-              <div className="mt-2">
-                <span className="text-[#14140F] bg-brand-perk px-3.5 py-1.5 rounded-xl font-bold text-sm md:text-base inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
+              <div className="mt-2.5">
+                <span className="text-[#14140F] bg-brand-perk px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm inline-block shadow-[0_0_20px_rgba(190,255,80,0.3)]">
                   Hosts Are Obsessed.
                 </span>
               </div>
@@ -127,7 +149,7 @@ export default function Offerings() {
               src="/Testimonial - Ramya.mp4" 
               activeUnmutedId={activeUnmutedId}
               onToggleAudio={handleToggleAudio}
-              delay={0.15} 
+              delay={0.2} 
             />
           </div>
 
