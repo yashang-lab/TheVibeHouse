@@ -4,10 +4,91 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Button from "../Button";
 
+const carouselImages = [
+  { src: "/hero-carousel/catering.jpg", alt: "Live Party Catering with The Vibe House Staff" },
+  { src: "/hero-carousel/stage-decor.jpg", alt: "Theme Birthday Backdrop & Stage Decor" },
+  { src: "/hero-carousel/cake.jpg", alt: "Custom Themed Two-Tier Birthday Cake" },
+  { src: "/hero-carousel/celebration.jpg", alt: "Family Birthday Celebration with Cake Cutting" },
+];
+
+const carouselImagesRight = [
+  carouselImages[2], // cake.jpg
+  carouselImages[3], // celebration.jpg
+  carouselImages[0], // catering.jpg
+  carouselImages[1], // stage-decor.jpg
+];
+
 export default function Hero() {
 
   return (
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
+      
+      {/* Left Vertical Photo Carousel */}
+      <div 
+        className="hidden lg:block absolute left-3 xl:left-8 2xl:left-14 top-16 bottom-36 w-[180px] xl:w-[230px] 2xl:w-[270px] overflow-hidden pointer-events-none z-0 lg:opacity-60 xl:opacity-85 2xl:opacity-100 transition-opacity"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+        }}
+      >
+        <motion.div
+          className="flex flex-col gap-6"
+          animate={{ y: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 28,
+          }}
+        >
+          {[...carouselImages, ...carouselImages].map((item, idx) => (
+            <div
+              key={idx}
+              className="relative w-full aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/15 shadow-[0_20px_45px_rgba(0,0,0,0.7)] bg-[#141414] shrink-0 group pointer-events-auto hover:border-brand-perk/40 transition-colors"
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Right Vertical Photo Carousel */}
+      <div 
+        className="hidden lg:block absolute right-3 xl:right-8 2xl:right-14 top-16 bottom-36 w-[180px] xl:w-[230px] 2xl:w-[270px] overflow-hidden pointer-events-none z-0 lg:opacity-60 xl:opacity-85 2xl:opacity-100 transition-opacity"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+        }}
+      >
+        <motion.div
+          className="flex flex-col gap-6"
+          animate={{ y: ["-50%", "0%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 28,
+          }}
+        >
+          {[...carouselImagesRight, ...carouselImagesRight].map((item, idx) => (
+            <div
+              key={idx}
+              className="relative w-full aspect-[3/4] rounded-[2rem] overflow-hidden border border-white/15 shadow-[0_20px_45px_rgba(0,0,0,0.7)] bg-[#141414] shrink-0 group pointer-events-auto hover:border-brand-perk/40 transition-colors"
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       <div className="container mx-auto px-6 max-w-7xl relative z-10 text-center">
         
         {/* Main Content Block */}
