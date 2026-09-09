@@ -6,9 +6,11 @@ import Button from "../Button";
 
 const carouselImages = [
   { src: "/hero-carousel/catering.jpg", alt: "Live Party Catering with The Vibe House Staff" },
-  { src: "/hero-carousel/stage-decor.jpg", alt: "Theme Birthday Backdrop & Stage Decor" },
-  { src: "/hero-carousel/cake.jpg", alt: "Custom Themed Two-Tier Birthday Cake" },
+  { src: "/hero-carousel/aviator-stage.jpg", alt: "Aviator Theme Birthday Backdrop & Stage Decor" },
+  { src: "/hero-carousel/cake.jpg", alt: "Custom Fairytale Castle Birthday Cake" },
   { src: "/hero-carousel/celebration.jpg", alt: "Family Birthday Celebration with Cake Cutting" },
+  { src: "/hero-carousel/stage-decor.jpg", alt: "Theme Birthday Backdrop & Stage Decor" },
+  { src: "/hero-carousel/animal-train-cake.jpg", alt: "Animal Train & Airplane Themed First Birthday Cake" },
 ];
 
 export default function Hero() {
@@ -30,7 +32,7 @@ export default function Hero() {
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 38,
+            duration: 56,
           }}
         >
           {[...carouselImages, ...carouselImages].map((item, idx) => (
