@@ -7,15 +7,24 @@ import Button from "./Button";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 
+import { usePathname } from "next/navigation";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
   });
+
+  const navItems = ["Testimonials", "Pricing", "Why Us", "App", "FAQ"];
+  const getHref = (item: string) => {
+    const hash = `#${item.toLowerCase().replace(/\s+/g, '-')}`;
+    return pathname === "/" ? hash : `/${hash}`;
+  };
 
   return (
     <>
@@ -48,10 +57,10 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {["Testimonials", "Packages", "Why Us", "App", "FAQ"].map((item) => (
+            {navItems.map((item) => (
               <Link 
                 key={item} 
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getHref(item)}
                 className="text-sm font-semibold text-white/70 hover:text-white transition-colors"
               >
                 {item}
@@ -82,10 +91,10 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-[#111111] border-b border-white/10 p-6 flex flex-col gap-4 shadow-xl rounded-b-3xl">
-            {["Testimonials", "Packages", "Why Us", "App", "FAQ"].map((item) => (
+            {navItems.map((item) => (
               <Link 
                 key={item} 
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getHref(item)}
                 className="text-lg font-semibold text-white py-2 border-b border-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
