@@ -12,15 +12,15 @@ const carouselImages = [
 ];
 
 const headerLeftElements = [
-  { src: "/3d-elements/french_fries_3d.png", x: 0, y: -95, rotate: -15, scale: 1.15, size: 130, delay: 0.25 },
-  { src: "/3d-elements/hamburger_3d.png", x: -15, y: 35, rotate: -10, scale: 1.25, size: 145, delay: 0.4 },
-  { src: "/3d-elements/clinking_glasses_3d.png", x: 10, y: 165, rotate: 14, scale: 1.2, size: 135, delay: 0.55 },
+  { src: "/3d-elements/french_fries_3d.png", name: "Fries", rotate: -12, size: 76, delay: 0.2, hideOnLg: false },
+  { src: "/3d-elements/hamburger_3d.png", name: "Burger", rotate: -6, size: 84, delay: 0.35, hideOnLg: false },
+  { src: "/3d-elements/clinking_glasses_3d.png", name: "Drinks", rotate: 12, size: 74, delay: 0.5, hideOnLg: true },
 ];
 
 const headerRightElements = [
-  { src: "/3d-elements/birthday_cake_3d.png", x: 0, y: -95, rotate: 12, scale: 1.25, size: 155, delay: 0.3 },
-  { src: "/3d-elements/pizza_3d.png", x: 15, y: 35, rotate: 20, scale: 1.2, size: 140, delay: 0.45 },
-  { src: "/3d-elements/balloon_3d.png", x: -10, y: 165, rotate: -15, scale: 1.25, size: 140, delay: 0.6 },
+  { src: "/3d-elements/birthday_cake_3d.png", name: "Cake", rotate: 8, size: 84, delay: 0.25, hideOnLg: false },
+  { src: "/3d-elements/pizza_3d.png", name: "Pizza", rotate: 16, size: 76, delay: 0.4, hideOnLg: false },
+  { src: "/3d-elements/balloon_3d.png", name: "Balloon", rotate: -12, size: 72, delay: 0.55, hideOnLg: true },
 ];
 
 export default function Hero() {
@@ -29,71 +29,63 @@ export default function Hero() {
     <section className="relative pt-32 pb-32 overflow-hidden transparent">
       
       {/* Top Header Floating 3D Elements (Left Side: Fries, Burger, Drinks) */}
-      <div className="hidden lg:block absolute left-4 xl:left-12 2xl:left-24 top-24 pointer-events-none z-20">
-        <div className="relative w-36 h-96">
-          {headerLeftElements.map((item, i) => (
-            <motion.div
-              key={i}
-              className="absolute left-1/2 drop-shadow-2xl"
-              style={{
-                width: item.size,
-                height: item.size,
-                top: `calc(50% + ${item.y}px)`,
-                left: `calc(50% + ${item.x}px)`,
-                transform: "translate(-50%, -50%)"
-              }}
-              initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
-              animate={{ 
-                scale: item.scale,
-                rotate: item.rotate,
-                opacity: 1
-              }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 110, 
-                damping: 13, 
-                delay: item.delay,
-                opacity: { duration: 0.5, ease: "easeOut", delay: item.delay }
-              }}
-            >
-              <img src={item.src} alt="" className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]" />
-            </motion.div>
-          ))}
-        </div>
+      <div className="hidden lg:flex items-center gap-3 xl:gap-5 absolute left-4 sm:left-6 xl:left-10 2xl:left-16 top-28 xl:top-32 pointer-events-none z-20">
+        {headerLeftElements.map((item, i) => (
+          <motion.div
+            key={i}
+            className={`drop-shadow-2xl ${item.hideOnLg ? "hidden xl:block" : "block"}`}
+            style={{ width: item.size, height: item.size }}
+            initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
+            animate={{ 
+              scale: 1,
+              rotate: item.rotate,
+              opacity: 1,
+              y: [0, -6, 0]
+            }}
+            transition={{ 
+              scale: { type: "spring", stiffness: 120, damping: 12, delay: item.delay },
+              rotate: { type: "spring", stiffness: 120, damping: 12, delay: item.delay },
+              opacity: { duration: 0.4, ease: "easeOut", delay: item.delay },
+              y: { duration: 3.5 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: item.delay + 0.5 }
+            }}
+          >
+            <img 
+              src={item.src} 
+              alt={item.name} 
+              className="w-full h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)] select-none" 
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* Top Header Floating 3D Elements (Right Side: Cake, Pizza, Balloon) */}
-      <div className="hidden lg:block absolute right-4 xl:right-12 2xl:right-24 top-24 pointer-events-none z-20">
-        <div className="relative w-36 h-96">
-          {headerRightElements.map((item, i) => (
-            <motion.div
-              key={i}
-              className="absolute left-1/2 drop-shadow-2xl"
-              style={{
-                width: item.size,
-                height: item.size,
-                top: `calc(50% + ${item.y}px)`,
-                left: `calc(50% + ${item.x}px)`,
-                transform: "translate(-50%, -50%)"
-              }}
-              initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
-              animate={{ 
-                scale: item.scale,
-                rotate: item.rotate,
-                opacity: 1
-              }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 110, 
-                damping: 13, 
-                delay: item.delay,
-                opacity: { duration: 0.5, ease: "easeOut", delay: item.delay }
-              }}
-            >
-              <img src={item.src} alt="" className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]" />
-            </motion.div>
-          ))}
-        </div>
+      <div className="hidden lg:flex items-center gap-3 xl:gap-5 absolute right-4 sm:right-6 xl:right-10 2xl:right-16 top-28 xl:top-32 pointer-events-none z-20">
+        {headerRightElements.map((item, i) => (
+          <motion.div
+            key={i}
+            className={`drop-shadow-2xl ${item.hideOnLg ? "hidden xl:block" : "block"}`}
+            style={{ width: item.size, height: item.size }}
+            initial={{ scale: 0.1, rotate: 0, opacity: 0 }}
+            animate={{ 
+              scale: 1,
+              rotate: item.rotate,
+              opacity: 1,
+              y: [0, -6, 0]
+            }}
+            transition={{ 
+              scale: { type: "spring", stiffness: 120, damping: 12, delay: item.delay },
+              rotate: { type: "spring", stiffness: 120, damping: 12, delay: item.delay },
+              opacity: { duration: 0.4, ease: "easeOut", delay: item.delay },
+              y: { duration: 3.8 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: item.delay + 0.5 }
+            }}
+          >
+            <img 
+              src={item.src} 
+              alt={item.name} 
+              className="w-full h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)] select-none" 
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* Horizontal Background Photo Carousel (Starting Below Header, Sliding Left-to-Right Behind Text) */}
