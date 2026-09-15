@@ -136,18 +136,15 @@ export default function Packages() {
           })}
         </div>
 
-        {/* Clean, Uncluttered Connect Card with Representative */}
+        {/* Clean, Uncluttered Connect Section with Representative */}
         <motion.div
           initial={{ opacity: 0.01, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-[2.5rem] bg-gradient-to-br from-[#1A2210]/90 via-[#141414]/95 to-[#161616]/95 border border-brand-perk/40 p-6 sm:p-10 lg:p-12 shadow-[0_0_40px_rgba(190,255,80,0.12)] relative overflow-hidden backdrop-blur-xl"
+          className="relative pt-4 sm:pt-8"
         >
-          {/* Ambient Glow */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-perk/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Direct CTA & Clean Copy */}
             <div className="lg:col-span-7">
