@@ -194,45 +194,47 @@ export default function Packages() {
               </div>
             </div>
 
-            {/* Right Column: Clean Representative Image (No Name, No Ratings) */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[320px]">
+            {/* Right Column: Clean Cutout Popping Out Through Rectangle Element */}
+            <div className="lg:col-span-5 flex justify-center items-end pt-10 sm:pt-14">
+              <div className="relative w-full max-w-[340px] flex flex-col items-center">
                 
-                {/* Glow Border Effect */}
-                <div className="absolute -inset-1.5 bg-gradient-to-tr from-brand-perk/30 to-brand-perk/10 rounded-[2rem] blur-lg opacity-70" />
+                {/* Glow Behind the Card */}
+                <div className="absolute inset-x-4 bottom-2 top-16 bg-brand-perk/20 rounded-[2.5rem] blur-2xl pointer-events-none" />
                 
-                {/* Photo Frame */}
-                <div className="relative rounded-[1.8rem] overflow-hidden border border-brand-perk/30 bg-black/60 shadow-2xl">
-                  <div className="relative aspect-[3/4] w-full">
-                    <Image
-                      src="/party-planner.jpg"
-                      alt="The Vibe House Expert"
-                      fill
-                      className="object-cover object-top"
-                      priority
-                    />
-                    
-                    {/* Soft gradient bottom overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    {/* Top Pill: Simple Available Status */}
-                    <div className="absolute top-4 left-4">
-                      <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-bold text-xs flex items-center gap-2 shadow-lg">
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
-                        <span>The Vibe House Expert</span>
-                      </div>
-                    </div>
+                {/* The Background Rectangle Element (Arch/Pedestal Frame) */}
+                <div className="absolute inset-x-0 bottom-0 top-14 rounded-[2.2rem] bg-gradient-to-b from-[#222E14]/80 via-[#181818]/90 to-[#121212]/95 border-2 border-brand-perk/40 shadow-2xl backdrop-blur-xl overflow-hidden">
+                  {/* Subtle Grid / Texture inside rectangle */}
+                  <div className="absolute inset-0 bg-[radial-gradient(#BEFF50_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+                  <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black/80 to-transparent" />
+                </div>
 
-                    {/* Bottom Pill: Simple Helper Tag (No Name, No Ratings) */}
-                    <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-black/75 backdrop-blur-xl border border-white/15 text-center shadow-xl">
-                      <div className="text-white font-bold text-sm tracking-tight">
-                        Here to help curate your event
-                      </div>
-                      <div className="text-white/60 text-xs mt-0.5">
-                        Direct 1-on-1 assistance
-                      </div>
-                    </div>
+                {/* The Cutout Woman Popping Out Beyond the Rectangle Top */}
+                <div className="relative z-10 w-full h-[400px] sm:h-[440px] flex items-end justify-center pointer-events-none">
+                  <Image
+                    src="/expert-cutout.png"
+                    alt="The Vibe House Expert"
+                    width={310}
+                    height={550}
+                    className="object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.8)] filter transition-transform duration-500 hover:scale-105"
+                    priority
+                  />
+                </div>
 
+                {/* Floating Badges */}
+                <div className="absolute top-4 right-2 z-20">
+                  <div className="px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-brand-perk/40 text-white font-bold text-xs flex items-center gap-2 shadow-xl">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
+                    <span>The Vibe House Expert</span>
+                  </div>
+                </div>
+
+                {/* Bottom Glass Card Overlay */}
+                <div className="relative z-20 -mt-6 mb-3 w-[90%] p-3 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/15 text-center shadow-2xl">
+                  <div className="text-white font-bold text-sm tracking-tight">
+                    Here to help curate your event
+                  </div>
+                  <div className="text-white/60 text-xs mt-0.5">
+                    Direct 1-on-1 assistance
                   </div>
                 </div>
 
