@@ -220,16 +220,12 @@ export default function Packages() {
                   />
                 </div>
 
-                {/* Floating Badges */}
-                <div className="absolute top-4 right-2 z-20">
-                  <div className="px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-brand-perk/40 text-white font-bold text-xs flex items-center gap-2 shadow-xl">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
+                {/* Bottom Glass Card Overlay (Cleanly Placed at Bottom, Never Covering Face) */}
+                <div className="relative z-20 -mt-6 mb-3 w-[92%] p-3.5 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/15 text-center shadow-2xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-brand-perk/30 text-xs font-bold text-brand-perk mb-1.5">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                     <span>The Vibe House Expert</span>
                   </div>
-                </div>
-
-                {/* Bottom Glass Card Overlay */}
-                <div className="relative z-20 -mt-6 mb-3 w-[90%] p-3 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/15 text-center shadow-2xl">
                   <div className="text-white font-bold text-sm tracking-tight">
                     Here to help curate your event
                   </div>
