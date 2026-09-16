@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Offerings from "@/components/sections/Offerings";
 import ValueComparison from "@/components/sections/ValueComparison";
@@ -11,7 +10,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-transparent">
-      <Navbar />
       <Hero />
       <Offerings />
       <Packages />

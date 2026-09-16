@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Instagram, MessageCircle, Phone, Mail } from "lucide-react";
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_NUMBER } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -22,7 +23,13 @@ export default function Footer() {
               <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 hover:bg-brand hover:text-white transition-colors shadow-sm border border-gray-100">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 hover:bg-[#25D366] hover:text-white transition-colors shadow-sm border border-gray-100">
+              <a 
+                href={getWhatsAppUrl()} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 hover:bg-[#25D366] hover:text-white transition-colors shadow-sm border border-gray-100"
+              >
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -53,7 +60,9 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-gray-500">
                 <Phone size={18} className="text-brand" />
-                <span className="font-medium">+91 98765 43210</span>
+                <a href={`tel:${WHATSAPP_DISPLAY_NUMBER.replace(/\s+/g, '')}`} className="font-medium hover:text-brand transition-colors">
+                  {WHATSAPP_DISPLAY_NUMBER}
+                </a>
               </li>
               <li className="flex items-center gap-3 text-gray-500">
                 <Mail size={18} className="text-brand" />

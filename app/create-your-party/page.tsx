@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import {
   Utensils,
   Palette,
@@ -375,11 +376,10 @@ export default function CreateYourPartyPage() {
     return encodeURIComponent(msg);
   };
 
-  const whatsappUrl = `https://wa.me/919876543210?text=${generateWhatsAppMessage()}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${generateWhatsAppMessage()}`;
 
   return (
     <main className="min-h-screen bg-[#0C0C0B] text-white flex flex-col selection:bg-brand-perk selection:text-[#14140F]">
-      <Navbar />
 
       {/* Hero Header Section */}
       <section className="pt-36 pb-12 px-4 sm:px-6 relative overflow-hidden">

@@ -1,4 +1,5 @@
-export const WHATSAPP_NUMBER = "919876543210";
+export const WHATSAPP_NUMBER = "917619523041";
+export const WHATSAPP_DISPLAY_NUMBER = "+91 761 952 3041";
 
 export const getWhatsAppUrl = (topic?: string) => {
   const message = topic

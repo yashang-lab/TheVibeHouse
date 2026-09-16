@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export const metadata: Metadata = {
   title: "The Vibe House | Event Management Reimagined.",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <div className="relative z-0">
           <Navbar />
           {children}
+          <FloatingWhatsApp />
         </div>
       </body>
     </html>
