@@ -8,6 +8,7 @@ interface ReelCardProps {
   id: string;
   src: string;
   badge?: string;
+  poster?: string;
   activeUnmutedId: string | null;
   onToggleAudio: (id: string) => void;
   delay?: number;
@@ -17,6 +18,7 @@ const ReelCard = ({
   id,
   src, 
   badge,
+  poster,
   activeUnmutedId,
   onToggleAudio,
   delay = 0 
@@ -47,6 +49,7 @@ const ReelCard = ({
         loop 
         muted 
         playsInline 
+        poster={poster}
         className="absolute top-0 left-0 w-full h-full object-contain bg-black"
       >
         <source src={src} type="video/mp4" />
@@ -130,12 +133,13 @@ export default function Offerings() {
           </motion.p>
         </div>
 
-        {/* 3 Reels Side-by-Side Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-full mx-auto items-start">
+        {/* 4 Reels Side-by-Side Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 max-w-full mx-auto items-start">
           
           <ReelCard 
             id="vibe-reel"
             src="/vibe-reel.mp4" 
+            poster="/vibe-reel-poster.jpg"
             badge="The Vibe Box"
             activeUnmutedId={activeUnmutedId}
             onToggleAudio={handleToggleAudio}
@@ -145,6 +149,7 @@ export default function Offerings() {
           <ReelCard 
             id="shubham-event"
             src="/shubham-event.mp4" 
+            poster="/shubham-event-poster.jpg"
             badge="Shubham's Event"
             activeUnmutedId={activeUnmutedId}
             onToggleAudio={handleToggleAudio}
@@ -154,10 +159,21 @@ export default function Offerings() {
           <ReelCard 
             id="ramya-review"
             src="/Testimonial - Ramya.mp4" 
+            poster="/testimonial-ramya-poster.jpg"
             badge="Host Review"
             activeUnmutedId={activeUnmutedId}
             onToggleAudio={handleToggleAudio}
             delay={0.2} 
+          />
+
+          <ReelCard 
+            id="testimonial-3"
+            src="/Testimonial 3.mp4" 
+            poster="/testimonial-3-poster.jpg"
+            badge="Host Review"
+            activeUnmutedId={activeUnmutedId}
+            onToggleAudio={handleToggleAudio}
+            delay={0.3} 
           />
 
         </div>
