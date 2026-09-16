@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Button from "../Button";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const carouselImages = [
   { src: "/hero-carousel/catering.jpg", alt: "Live Party Catering with The Vibe House Staff" },
@@ -98,9 +99,16 @@ export default function Hero() {
           {/* CTAs Rebalanced */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             {/* Primary CTA */}
-            <Button size="lg" className="w-full sm:w-auto font-bold px-10 bg-brand-perk text-[#14140F] hover:bg-[#a6e546] border-none shadow-[0_0_30px_rgba(190,255,80,0.3)]">
-              Book an Event
-            </Button>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button size="lg" className="w-full sm:w-auto font-bold px-10 bg-brand-perk text-[#14140F] hover:bg-[#a6e546] border-none shadow-[0_0_30px_rgba(190,255,80,0.3)] cursor-pointer">
+                Book an Event
+              </Button>
+            </a>
             {/* Secondary CTA downgraded */}
             <a 
               href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share"

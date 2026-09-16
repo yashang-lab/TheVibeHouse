@@ -15,15 +15,7 @@ import {
   PartyPopper
 } from "lucide-react";
 
-// Configurable WhatsApp Contact Number
-const WHATSAPP_NUMBER = "919876543210"; 
-
-const getWhatsAppUrl = (topic?: string) => {
-  const message = topic
-    ? `Hi The Vibe House, I'd like to connect with your party planning expert to discuss ${topic} for my upcoming event!`
-    : "Hi The Vibe House, I want to share my party requirements so you can help me curate the best experience!";
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-};
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const steps = [
   {
@@ -172,16 +164,16 @@ export default function Packages() {
               </div>
 
               {/* Primary Action Button */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-brand-perk text-[#14140F] hover:bg-[#a6e546] font-black text-base sm:text-lg px-8 py-4 rounded-2xl shadow-[0_0_30px_rgba(190,255,80,0.35)] hover:scale-105 active:scale-95 transition-all group"
+                  className="inline-flex items-center justify-center gap-3.5 bg-brand-perk text-[#14140F] hover:bg-[#a6e546] font-black text-lg sm:text-xl px-10 py-5 sm:px-12 sm:py-5.5 rounded-2xl shadow-[0_0_35px_rgba(190,255,80,0.45)] hover:scale-105 active:scale-95 transition-all group tracking-wide"
                 >
-                  <MessageCircle className="w-5 h-5 fill-current" />
-                  <span>CHAT ON WHATSAPP</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <MessageCircle className="w-6 h-6 fill-current" />
+                  <span>BOOK NOW</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
                 </a>
 
                 <div className="flex items-center gap-2 text-xs sm:text-sm text-white/70 font-medium">

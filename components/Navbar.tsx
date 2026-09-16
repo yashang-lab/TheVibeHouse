@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, User as UserIcon, LogOut } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Button from "./Button";
 import Link from "next/link";
-import AuthModal from "./AuthModal";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
 
@@ -28,8 +27,6 @@ export default function Navbar() {
 
   return (
     <>
-      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
-      
       <motion.div
         className="fixed top-0 left-0 right-0 z-40"
         initial={{ opacity: 0 }}
@@ -69,14 +66,15 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              onClick={() => setIsAuthModalOpen(true)}
-              className="text-white hover:text-brand-perk font-semibold"
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Log In
-            </Button>
-            <Button className="font-semibold bg-brand-perk text-[#14140F] hover:bg-[#a6e546] shadow-md border-none">Book Event</Button>
+              <Button className="font-semibold bg-brand-perk text-[#14140F] hover:bg-[#a6e546] shadow-md border-none cursor-pointer">
+                Book Event
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Toggle */}
@@ -102,17 +100,17 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 mt-4">
-              <Button 
-                variant="outline" 
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsAuthModalOpen(true);
-                }} 
-                className="w-full justify-center font-semibold border-white/20 text-white"
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                Log In
-              </Button>
-              <Button className="w-full justify-center bg-brand-perk text-[#14140F] font-semibold border-none">Book Event</Button>
+                <Button className="w-full justify-center bg-brand-perk text-[#14140F] font-semibold border-none">
+                  Book Event
+                </Button>
+              </a>
             </div>
           </div>
         )}
