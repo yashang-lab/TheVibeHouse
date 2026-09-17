@@ -19,20 +19,16 @@ export default function Navbar() {
     setIsScrolled(latest > 20);
   });
 
-  const navItems = ["Testimonials", "Pricing", "Why Us", "App", "FAQ"];
+  const navItems = ["About Us", "Testimonials", "Pricing", "Why Us", "App", "FAQ"];
   const getHref = (item: string) => {
+    if (item === "About Us") return "/about";
     const hash = `#${item.toLowerCase().replace(/\s+/g, '-')}`;
     return pathname === "/" ? hash : `/${hash}`;
   };
 
   return (
     <>
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
+      <div className="fixed top-0 left-0 right-0 z-40">
         <header
           className={`transition-all duration-300 ${
             isScrolled ? "bg-[#1A1A1A]/95 backdrop-blur-md rounded-full m-3 max-w-6xl mx-auto px-2 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/10" : "bg-transparent py-3 border border-transparent m-0"
@@ -54,15 +50,20 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link 
-                key={item} 
-                href={getHref(item)}
-                className="text-sm font-semibold text-white/70 hover:text-white transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item === "About Us" && pathname === "/about";
+              return (
+                <Link 
+                  key={item} 
+                  href={getHref(item)}
+                  className={`text-sm font-semibold transition-colors ${
+                    isActive ? "text-brand-perk" : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {item}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -89,16 +90,21 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-[#111111] border-b border-white/10 p-6 flex flex-col gap-4 shadow-xl rounded-b-3xl">
-            {navItems.map((item) => (
-              <Link 
-                key={item} 
-                href={getHref(item)}
-                className="text-lg font-semibold text-white py-2 border-b border-white/5"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item === "About Us" && pathname === "/about";
+              return (
+                <Link 
+                  key={item} 
+                  href={getHref(item)}
+                  className={`text-lg font-semibold py-2 border-b border-white/5 transition-colors ${
+                    isActive ? "text-brand-perk" : "text-white"
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              );
+            })}
             <div className="flex flex-col gap-2 mt-4">
               <a
                 href={getWhatsAppUrl()}
@@ -115,7 +121,7 @@ export default function Navbar() {
           </div>
         )}
         </header>
-      </motion.div>
+      </div>
     </>
   );
 }

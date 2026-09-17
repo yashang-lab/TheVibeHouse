@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { Instagram, MessageCircle, Phone, Mail } from "lucide-react";
+import { Instagram, MessageCircle, Phone } from "lucide-react";
 import { getWhatsAppUrl, WHATSAPP_DISPLAY_NUMBER } from "@/lib/whatsapp";
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-black/10 pt-20 pb-10 relative z-10 mt-20">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           
-          <div className="lg:col-span-1">
+          <div>
             <Link href="/" className="flex items-center gap-3 mb-6 inline-flex group">
               <div className="w-10 h-10 bg-brand text-white font-bold text-xl flex items-center justify-center rounded-xl shadow-md group-hover:scale-105 transition-transform">
                 T
@@ -34,24 +34,12 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-sm">Services</h4>
-            <ul className="space-y-3">
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Vibe Box Delivery</Link></li>
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Live Chef Experiences</Link></li>
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Corporate Events</Link></li>
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Custom Housewarmings</Link></li>
-            </ul>
-          </div>
 
           <div>
             <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-sm">Company</h4>
             <ul className="space-y-3">
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">About Us</Link></li>
+              <li><Link href="/about" className="text-gray-500 hover:text-brand font-medium transition-colors">About Us</Link></li>
               <li><a href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand font-medium transition-colors">Download App</a></li>
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-gray-500 hover:text-brand font-medium transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -63,10 +51,6 @@ export default function Footer() {
                 <a href={`tel:${WHATSAPP_DISPLAY_NUMBER.replace(/\s+/g, '')}`} className="font-medium hover:text-brand transition-colors">
                   {WHATSAPP_DISPLAY_NUMBER}
                 </a>
-              </li>
-              <li className="flex items-center gap-3 text-gray-500">
-                <Mail size={18} className="text-brand" />
-                <span className="font-medium">hello@thevibehouse.in</span>
               </li>
               <li className="flex items-center gap-3 text-gray-500">
                 <div className="w-4 h-4 rounded-full bg-green-500 animate-pulse mt-1 shrink-0" />
