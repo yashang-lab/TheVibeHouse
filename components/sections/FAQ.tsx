@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "How does the app discount work?",
-    answer: "When you download The Vibe House app, you get exclusive access to our 'Deal Feast' which offers up to 70% off your first VibeBox order, plus you earn loyalty points on every booking.\n\nDiscounts are seasonal and keep on changing depending upon demand. Some users may get exclusive discounts, while others may get it at original price."
+    answer: "When you download The Vibe House app, you get access to our 'Deal Feast' which offers up to 10% off your first VibeBox order.\n\nDiscounts are seasonal and may not be there always, as they keep on changing depending upon demand. Some users may get exclusive discounts, while others may get it at original price."
   },
   {
     question: "Do I need to clean up after the event?",
