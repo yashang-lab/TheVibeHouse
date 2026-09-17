@@ -67,18 +67,18 @@ const ReelCard = ({
         </div>
       )}
 
-      {/* Volume Enabler Button in Bottom Right Corner */}
-      <div className="absolute bottom-6 right-6 z-20">
+      {/* Volume Enabler Button in Top Right Corner (Standard for Reels, Avoids Floating Buttons) */}
+      <div className="absolute top-5 right-5 z-20">
         <button
           onClick={() => onToggleAudio(id)}
-          className="w-12 h-12 rounded-full bg-black/60 border border-white/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-perk hover:text-[#14140F] hover:border-brand-perk transition-all shadow-xl active:scale-95 shrink-0"
+          className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 border border-white/30 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-perk hover:text-[#14140F] hover:border-brand-perk transition-all shadow-xl active:scale-95 shrink-0"
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
           title={isMuted ? "Enable Audio" : "Mute Audio"}
         >
           {isMuted ? (
-            <VolumeX className="w-5 h-5" />
+            <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
           ) : (
-            <Volume2 className="w-5 h-5 text-brand-perk hover:text-[#14140F]" />
+            <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-brand-perk hover:text-[#14140F]" />
           )}
         </button>
       </div>

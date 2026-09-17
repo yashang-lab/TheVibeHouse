@@ -17,11 +17,11 @@ const carouselImages = [
 export default function Hero() {
 
   return (
-    <section className="relative pt-32 pb-32 overflow-hidden transparent">
+    <section className="relative pt-36 sm:pt-40 md:pt-44 pb-24 sm:pb-32 overflow-hidden transparent">
 
-      {/* Horizontal Background Photo Carousel (Starting directly from the text 'Party tumhari', Sliding Left-to-Right Behind Text) */}
+      {/* Horizontal Background Photo Carousel (Starting directly behind 'Party tumhari', Sliding Left-to-Right Behind Text) */}
       <div 
-        className="absolute top-[220px] sm:top-[230px] md:top-[235px] bottom-16 md:bottom-20 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-start"
+        className="absolute top-[250px] sm:top-[270px] md:top-[285px] bottom-16 md:bottom-20 inset-x-0 overflow-hidden pointer-events-none z-0 flex items-start"
         style={{
           maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
@@ -39,7 +39,7 @@ export default function Hero() {
           {[...carouselImages, ...carouselImages].map((item, idx) => (
             <div
               key={idx}
-              className="relative w-[300px] sm:w-[360px] md:w-[410px] lg:w-[450px] h-[580px] sm:h-[660px] md:h-[720px] lg:h-[760px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
+              className="relative w-[280px] sm:w-[360px] md:w-[410px] lg:w-[450px] h-[520px] sm:h-[660px] md:h-[720px] lg:h-[760px] rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#141414] shrink-0"
             >
               <img
                 src={item.src}
@@ -53,46 +53,46 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 text-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 text-center">
         
         {/* Main Content Block */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="max-w-4xl mx-auto mb-12 relative z-20"
+          className="max-w-4xl mx-auto mb-10 sm:mb-12 relative z-20"
         >
           {/* Subtle ambient back-glow for crisp text contrast against moving photos */}
           <div className="absolute -inset-6 sm:-inset-10 bg-black/50 rounded-[3rem] blur-3xl -z-10 pointer-events-none" />
           {/* Top Section: India's Leading End-To-End Solution */}
-          <div className="mb-10">
-            <p className="text-base md:text-xl font-black text-white/90 mb-5 tracking-widest uppercase">
-              <span className="text-3xl md:text-5xl font-black text-brand-perk tracking-wider inline-block mr-1.5">INDIA&apos;S</span> LEADING END-TO-END SOLUTION FOR:
+          <div className="mb-6 sm:mb-10">
+            <p className="text-xs sm:text-base md:text-xl font-black text-white/90 mb-3 sm:mb-5 tracking-widest uppercase">
+              <span className="text-xl sm:text-3xl md:text-5xl font-black text-brand-perk tracking-wider inline-block mr-1">INDIA&apos;S</span> LEADING END-TO-END SOLUTION FOR:
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+              <span className="px-3.5 py-1.5 sm:px-6 sm:py-3 rounded-full font-bold text-xs sm:text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
                 House Parties 🎉
               </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+              <span className="px-3.5 py-1.5 sm:px-6 sm:py-3 rounded-full font-bold text-xs sm:text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
                 Birthdays 🎂
               </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+              <span className="px-3.5 py-1.5 sm:px-6 sm:py-3 rounded-full font-bold text-xs sm:text-sm md:text-base text-white/90 bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
                 Corporate Events 💼
               </span>
-              <span className="px-6 py-3 rounded-full font-bold text-sm md:text-base text-white/70 bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
+              <span className="px-3.5 py-1.5 sm:px-6 sm:py-3 rounded-full font-bold text-xs sm:text-sm md:text-base text-white/70 bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
                 and more... ✨
               </span>
             </div>
           </div>
           
           {/* New Promoted H1 */}
-          <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black text-white leading-[1.05] mb-6 tracking-tight drop-shadow-xl">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7.5rem] font-black text-white leading-[1.08] mb-5 sm:mb-6 tracking-tight drop-shadow-xl">
             Party tumhari.<br/>
             <span className="text-brand-perk">Tension humari.</span>
           </h1>
           
           {/* Subheadline */}
-          <p className="text-lg md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto font-medium drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-2xl text-white/80 mb-8 sm:mb-10 max-w-3xl mx-auto font-medium drop-shadow-md px-2">
             Enjoy your own party. Food, decor, staff, and cleanup—delivered seamlessly.
           </p>
           
