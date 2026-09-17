@@ -7,7 +7,7 @@ const reasons = [
   {
     icon: <Clock />,
     title: "No vendor coordination",
-    description: "Stop juggling caterers, decorators, and bartenders. We manage everyone."
+    description: "Stop juggling caterers, decorators, and photographers. We manage everyone."
   },
   {
     icon: <Sparkles />,

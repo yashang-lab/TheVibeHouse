@@ -25,9 +25,9 @@ const services = [
     className: "md:col-span-1 md:row-span-1"
   },
   {
-    title: "Bartenders",
-    description: "Professional mixologists for your drinks.",
-    icon: "🍹",
+    title: "Photography & Media",
+    description: "Candid photographers & 4K cinematic reels.",
+    icon: "📸",
     image: "/gamenight.jpg",
     className: "md:col-span-1 md:row-span-2"
   },

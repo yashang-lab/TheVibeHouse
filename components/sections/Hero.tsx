@@ -160,7 +160,7 @@ export default function Hero() {
             <div key={i} className="flex gap-8 items-center">
               <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ Premium Food</span>
               <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ Immersive Decor</span>
-              <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ VIP Bartenders</span>
+              <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ Live Chefs</span>
               <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ Seamless Execution</span>
               <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ End-To-End Management</span>
               <span className="text-white/30 font-bold uppercase tracking-[0.2em] text-sm">✦ Curated Playlists</span>

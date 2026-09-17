@@ -10,7 +10,7 @@ import {
   Utensils,
   Palette,
   Cake,
-  GlassWater,
+  Music,
   Camera,
   Sparkles,
   Check,
@@ -47,7 +47,7 @@ const masterCategories = [
   { id: "food", label: "Food & Live Counters", icon: Utensils },
   { id: "decor", label: "Themed Decor", icon: Palette },
   { id: "cakes", label: "Premium Cakes", icon: Cake },
-  { id: "activities", label: "Live Activities", icon: GlassWater },
+  { id: "activities", label: "Live Activities", icon: Music },
   { id: "media", label: "Photo & Video", icon: Camera },
 ] as const;
 
@@ -216,17 +216,17 @@ const catalogItems: CatalogItem[] = [
     id: "act-1",
     category: "activities",
     categoryName: "Live Activities",
-    title: "Live Flare Mocktail Bar & Mixologist",
-    tag: "Interactive Bar",
-    price: 5500,
-    unit: "3 Hours Open Bar",
-    image: "/catalog/activity-mocktail-bar.jpg",
-    description: "Professional bartender crafting handcrafted signature mocktails (Smoked Cranberry, Blue Curacao Fizz, Spicy Chilli Guava) with illuminated bar counter and glassware.",
+    title: "Live Acoustic Singer & Guitarist",
+    tag: "Live Music Hit",
+    price: 6000,
+    unit: "2.5 Hours Performance",
+    image: "/catalog/activity-party-games.jpg",
+    description: "Talented live acoustic musician singing Bollywood, indie pop, and evergreen melodies with acoustic guitar and personal sound monitor.",
     features: [
-      "Dedicated flair mixologist for 3 hours",
-      "3 signature craft mocktails unlimited",
-      "Complete glassware & bar garnish kit",
-      "Illuminated party counter presentation"
+      "Professional vocalist & acoustic guitarist",
+      "Curated setlist of Bollywood, Pop & Classics",
+      "Guest song requests welcome",
+      "Compact sound & acoustic setup included"
     ]
   },
   {

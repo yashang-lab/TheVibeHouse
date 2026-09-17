@@ -38,7 +38,6 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-gray-900 mb-6 uppercase tracking-wider text-sm">Company</h4>
             <ul className="space-y-3">
-              <li><Link href="/about" className="text-gray-500 hover:text-brand font-medium transition-colors">About Us</Link></li>
               <li><a href="https://play.google.com/store/apps/details?id=com.localzi.nxtmeal&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand font-medium transition-colors">Download App</a></li>
             </ul>
           </div>

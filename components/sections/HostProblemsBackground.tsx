@@ -69,11 +69,11 @@ export default function HostProblemsBackground() {
           </div>
         </div>
 
-        {/* Bottom Left: Ice & Mixers */}
+        {/* Bottom Left: Snacks & Drinks */}
         <div className="absolute bottom-[15%] left-[5%] md:left-[15%] bg-[#9CB495] px-6 py-3 rounded-2xl border border-[#7A9374] shadow-md z-10 flex items-center gap-3 transform rotate-3">
           <img src="/3d-elements/clinking_glasses_3d.png" className="w-10 h-10 drop-shadow-md" alt="" />
           <div>
-            <h4 className="font-bold text-[#14140F] text-lg leading-none mb-1">Ice & Mixers</h4>
+            <h4 className="font-bold text-[#14140F] text-lg leading-none mb-1">Snacks & Drinks</h4>
             <p className="text-[#14140F]/70 text-xs font-medium">Logistics run</p>
           </div>
         </div>
@@ -87,12 +87,12 @@ export default function HostProblemsBackground() {
           </div>
         </div>
 
-        {/* Middle Right: Local Bartender */}
+        {/* Middle Right: Sound & Lights */}
         <div className="absolute top-[45%] right-[2%] md:right-[5%] bg-[#9CB495] px-6 py-3 rounded-2xl border border-[#7A9374] shadow-md z-10 flex items-center gap-3 transform -rotate-1">
-          <div className="text-3xl drop-shadow-md">🍸</div>
+          <div className="text-3xl drop-shadow-md">🎵</div>
           <div>
-            <h4 className="font-bold text-[#14140F] text-lg leading-none mb-1">Local Bartender</h4>
-            <p className="text-[#14140F]/70 text-xs font-medium">Unreliable/No-show</p>
+            <h4 className="font-bold text-[#14140F] text-lg leading-none mb-1">Sound & Lights</h4>
+            <p className="text-[#14140F]/70 text-xs font-medium">Setup hassle</p>
           </div>
         </div>
 

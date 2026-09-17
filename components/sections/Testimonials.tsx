@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Arjun Verma",
     location: "Indiranagar",
-    review: "I've always stressed about hosting. For my 30th, TVH took care of everything. The bartender was the highlight of the night.",
+    review: "I've always stressed about hosting. For my 30th, TVH took care of everything. The live chefs and decor were the highlight of the night.",
     image: "/hero.jpg"
   },
   {

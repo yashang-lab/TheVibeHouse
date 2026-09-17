@@ -22,7 +22,7 @@ const comparisonData = [
   {
     feature: "Entertainment & Energy",
     diy: "Awkward silences, fighting over the AUX cable, or muffled Bluetooth speakers.",
-    vibe: "High-watt club party DJ, energetic interactive games emcee & craft flair mocktail bar."
+    vibe: "High-watt club party DJ, energetic interactive games emcee & curated playlists."
   },
   {
     feature: "Post-Party Cleanup",

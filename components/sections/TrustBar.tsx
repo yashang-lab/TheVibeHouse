@@ -6,7 +6,7 @@ const items = [
   "Food",
   "Decor",
   "Chefs",
-  "Bartenders",
+  "Photography",
   "Cleanup",
   "Games",
   "Return Gifts"

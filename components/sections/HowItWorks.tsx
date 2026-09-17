@@ -12,7 +12,7 @@ const steps = [
   {
     icon: <Settings className="w-10 h-10 text-brand-accent" />,
     title: "Customize everything",
-    description: "Select your menu, decor theme, and add-ons like bartenders or games.",
+    description: "Select your menu, decor theme, and add-ons like live DJs or games.",
   },
   {
     icon: <Coffee className="w-10 h-10 text-brand" />,
