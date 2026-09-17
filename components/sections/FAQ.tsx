@@ -7,7 +7,7 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     question: "Do you only do house parties?",
-    answer: "No! While we started with house parties, we now handle end-to-end management for corporate mixers, FIFA/Cricket watch nights, traditional housewarmings (Griha Pravesh), and more."
+    answer: "We do - Birthday parties, House parties, Corporate events, Sports event nights, Festive themed events, and more.\n\nYou name it, we do it !"
   },
   {
     question: "Can I customize the menu?",
@@ -62,7 +62,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-8 pb-8 text-text-muted font-medium pt-2 leading-relaxed text-lg border-t border-white/20">
+                    <div className="px-8 pb-8 text-text-muted font-medium pt-2 leading-relaxed text-lg border-t border-white/20 whitespace-pre-line">
                       {faq.answer}
                     </div>
                   </motion.div>
