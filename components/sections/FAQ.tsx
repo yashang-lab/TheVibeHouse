@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Do I need to clean up after the event?",
-    answer: "Not if you select our 'Full Experience' or add the Cleanup module! Our team handles post-event cleanup, leaving your space exactly as we found it."
+    answer: "Not at all! We will have our dedicated crew that will clean up after the event is done, leaving your space spotless so that there is no hassle for the host."
   }
 ];
 
